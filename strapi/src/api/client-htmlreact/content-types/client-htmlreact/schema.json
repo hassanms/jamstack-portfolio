@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "client_htmlreacts",
+  "info": {
+    "singularName": "client-htmlreact",
+    "pluralName": "client-htmlreacts",
+    "displayName": "client-htmlreact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hr": {
+      "type": "json"
+    }
+  }
+}

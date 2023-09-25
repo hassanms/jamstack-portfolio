@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card1s",
+  "info": {
+    "singularName": "card1",
+    "pluralName": "card1s",
+    "displayName": "card1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data": {
+      "type": "json"
+    }
+  }
+}

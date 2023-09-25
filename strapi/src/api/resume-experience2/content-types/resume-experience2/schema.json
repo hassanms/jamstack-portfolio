@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resume_experience2s",
+  "info": {
+    "singularName": "resume-experience2",
+    "pluralName": "resume-experience2s",
+    "displayName": "Resume-Experience2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "exx": {
+      "type": "json"
+    }
+  }
+}

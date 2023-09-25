@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education1s",
+  "info": {
+    "singularName": "education1",
+    "pluralName": "education1s",
+    "displayName": "education1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "year": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    }
+  }
+}

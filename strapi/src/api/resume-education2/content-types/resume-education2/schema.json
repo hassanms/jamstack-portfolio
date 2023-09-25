@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resume_education2s",
+  "info": {
+    "singularName": "resume-education2",
+    "pluralName": "resume-education2s",
+    "displayName": "Resume-Education2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "job": {
+      "type": "json"
+    }
+  }
+}

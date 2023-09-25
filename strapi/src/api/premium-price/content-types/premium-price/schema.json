@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "premium_prices",
+  "info": {
+    "singularName": "premium-price",
+    "pluralName": "premium-prices",
+    "displayName": "premium-price"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "price": {
+      "type": "json"
+    }
+  }
+}

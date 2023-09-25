@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "interview1s",
+  "info": {
+    "singularName": "interview1",
+    "pluralName": "interview1s",
+    "displayName": "interview1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "year": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    }
+  }
+}

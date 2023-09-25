@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "basic_prices",
+  "info": {
+    "singularName": "basic-price",
+    "pluralName": "basic-prices",
+    "displayName": "basic-price"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "price": {
+      "type": "json"
+    }
+  }
+}

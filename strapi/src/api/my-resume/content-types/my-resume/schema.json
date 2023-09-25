@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "my_resumes",
+  "info": {
+    "singularName": "my-resume",
+    "pluralName": "my-resumes",
+    "displayName": "My-Resume"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "heading1": {
+      "type": "string"
+    }
+  }
+}

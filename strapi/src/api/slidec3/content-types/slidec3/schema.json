@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slidec3s",
+  "info": {
+    "singularName": "slidec3",
+    "pluralName": "slidec3s",
+    "displayName": "slidec3"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slideimg3": {
+      "type": "string"
+    },
+    "heading1": {
+      "type": "string"
+    },
+    "heading2": {
+      "type": "string"
+    },
+    "heading3": {
+      "type": "string"
+    }
+  }
+}

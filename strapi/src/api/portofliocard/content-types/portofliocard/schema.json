@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portofliocards",
+  "info": {
+    "singularName": "portofliocard",
+    "pluralName": "portofliocards",
+    "displayName": "portofliocard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pf": {
+      "type": "json"
+    }
+  }
+}
