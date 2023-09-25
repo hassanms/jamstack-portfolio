@@ -35,6 +35,8 @@ cd strapi
 when u came to strapi directory then run this command.
 npm run develop.
 
+u will find http://localhost:8082/admin/ link in your terminal open that link in your terminal to see the strapi dashboard.
+
 remember that u must have node version 16 . otherwise u will see error while running your strapi.
 
 i am using strapi version 4.12.4.
