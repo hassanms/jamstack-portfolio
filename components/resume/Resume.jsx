@@ -16,7 +16,7 @@ const Resume = () => {
     const [data, setData] = useState({});
   
     useEffect(() => {
-      console.log("first");
+  
       axios
         .get("http://localhost:8082/api/my-resumes")
         .then((res) => setData(res.data.data[0].attributes))

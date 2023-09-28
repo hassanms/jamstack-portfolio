@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "richtext3s",
+  "info": {
+    "singularName": "richtext3",
+    "pluralName": "richtext3s",
+    "displayName": "richtext3"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rt3": {
+      "type": "richtext"
+    }
+  }
+}

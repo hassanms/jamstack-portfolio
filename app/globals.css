@@ -22,7 +22,7 @@ body {
 
 }
 
-@keyframes slideIn {
+@keyframes slideLeft {
   from {
     transform: translateX(-100%); /* Start from the left side */
   }
@@ -30,9 +30,20 @@ body {
     transform: translateX(0); /* Slide to its original position */
   }
 }
+@keyframes slideRight {
+  from {
+    transform: translateX(100%); /* Start from the left side */
+  }
+  to {
+    transform: translateX(0); /* Slide to its original position */
+  }
+}
 
-.slideDiv {
-  animation: slideIn 1s ease;
+.slideLeftDiv {
+  animation: slideLeft 0.7s ease;
+}
+.slideRightDiv {
+  animation: slideRight 0.7s ease;
 }
 
 

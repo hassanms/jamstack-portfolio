@@ -79,15 +79,21 @@ const Contact = () => {
 
                 <div>
                   <div className="space-x-10 mt-1">
-                    <button className="w-6">
-                      <FiFacebook className="w-8 h-8" />
-                    </button>
-                    <button className="w-6">
-                      <FiInstagram className="w-8 h-8" />
-                    </button>
-                    <button className="w-6">
-                      <FiLinkedin className="w-8 h-8" />
-                    </button>
+                    <a href="https://www.facebook.com" target="_blank">
+                      <button className="w-6">
+                        <FiFacebook className="w-8 h-8" />
+                      </button>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                      <button className="w-6">
+                        <FiInstagram className="w-8 h-8" />
+                      </button>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                      <button className="w-6">
+                        <FiLinkedin className="w-8 h-8" />
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -139,7 +145,6 @@ const Contact = () => {
             <textarea
               // onChange={(e) => setMessage(e.target.value)}
               className="lg:w-96 w-64 md:w-[600px] h-40 rounded bg-gray-950 border-red-700 border-none text-white resize-none break-all"
-      
             ></textarea>
           </div>
 

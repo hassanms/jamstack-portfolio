@@ -8,6 +8,8 @@ import axios from "axios";
 
 const Mainslide = () => {
   const [currentPage, setCurrentpage] = useState(0);
+  const [slideDirection, setSlideDirection] = useState('right');
+
 
   const [data , setdata] =useState({})
   useEffect(()=>{
@@ -25,14 +27,14 @@ const Mainslide = () => {
       <div className="flex lg:absolute justify-end lg:right-48 space-x-3 lg:mt-32 mt-10">
   <div>
     <button
-      onClick={() => setCurrentpage(currentPage === 0 ? 2 : currentPage - 1)}
+      onClick={() =>{setSlideDirection('right'), setCurrentpage(currentPage === 0 ? 2 : currentPage - 1)}}
     >
       <AiOutlineArrowLeft className="w-8 h-8 text-white hover:text-red-700" />
     </button>
   </div>
   <div>
     <button
-      onClick={() => setCurrentpage(currentPage === 2 ? 0 : currentPage + 1)}
+      onClick={() => {setSlideDirection('left'), setCurrentpage(currentPage === 2 ? 0 : currentPage + 1)}}
     >
       <AiOutlineArrowRight className="w-8 h-8 text-white hover:text-red-700" />
     </button>
@@ -41,15 +43,15 @@ const Mainslide = () => {
 
       {currentPage === 0 ? (
         <div>
-          <Slidefirst />
+          <Slidefirst slideDirection={slideDirection} />
         </div>
       ) : currentPage === 1 ? (
         <div>
-          <Slidesecond/>
+          <Slidesecond slideDirection={slideDirection}/>
         </div>
       ) : (
         <div>
-          <SlideThird />
+          <SlideThird slideDirection={slideDirection}/>
         </div>
       )}
     </div>

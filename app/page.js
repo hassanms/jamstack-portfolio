@@ -29,7 +29,7 @@ export default function Home() {
   const [isOpnedDrawer, setIsOpnedDrawer] = useState();
 
   const goToView = (name) => {
-    console.log(name);
+  
     if (name === "home") {
       homeRef.current?.scrollIntoView({
         behavior: "smooth",

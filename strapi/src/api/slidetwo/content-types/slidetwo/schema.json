@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slidetwos",
+  "info": {
+    "singularName": "slidetwo",
+    "pluralName": "slidetwos",
+    "displayName": "slidetwo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sl2": {
+      "type": "json"
+    }
+  }
+}

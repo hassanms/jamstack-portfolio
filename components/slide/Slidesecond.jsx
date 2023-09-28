@@ -9,24 +9,29 @@ import {
 import axios from "axios";
 
 
-const Slidesecond = () => {
+const Slidesecond = ({slideDirection}) => {
   const [data , setdata]=useState({})
-  const [data2 , setdata2]=useState({})
+  // const [data2 , setdata2]=useState({})
   useEffect(()=>{
     axios
-    .get("http://localhost:8082/api/slidec2s")
-    .then((res)=>setdata(res.data.data[0].attributes))
+    .get("http://localhost:8082/api/slidetwos")
+    .then((res)=>setdata(res.data.data[0].attributes.sl2[0]))
     .catch((err)=>console.log(err))
 
-    axios
-    .get("http://localhost:8082/api/slidec22s")
-    .then((res)=>setdata2(res.data.data[0].attributes))
-    .catch((err)=>console.log(err))
+  //   axios
+  //   .get("http://localhost:8082/api/slidec22s")
+  //   .then((res)=>setdata2(res.data.data[0].attributes))
+  //   .catch((err)=>console.log(err))
   },[])
 
+
+  
   return (
     <div className="mt-10">
-      <div className="slideDiv lg:flex md:flex md:space-x-5  justify-around mt-10 space-y-10 lg:space-y-0">
+      <div
+       className={`lg:flex md:flex md:space-x-5  justify-around mt-10 space-y-10 lg:space-y-0
+       ${slideDirection == 'right'? 'slideRightDiv' : 'slideLeftDiv'}`
+    }>
         <div className=" text-white lg:w-96 lg:h-1/2 md:h-1.2   shadow_1 hovred_bg  rounded-xl p-10 space-y-5">
           <img
             className="cursor-pointer w-80 h-60 rounded-xl  object-cover transform transition-transform duration-300 hover:scale-110"
@@ -59,11 +64,11 @@ const Slidesecond = () => {
 
           <div className=" text-white lg:w-96 lg:h-80 md:w-80 md:h-96 w-80 h-80 shadow_1 hovred_bg  justify-center rounded-xl p-10 space-y-10">
             <div className="lg:text-3xl text-2xl font-bold">
-             {data2?.heading1}
+             {data?.head1}
             </div>
 
             <div>
-            {data2?.heading2}
+            {data?.head2}
 
             </div>
           </div>

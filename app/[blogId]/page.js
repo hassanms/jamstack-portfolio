@@ -1,17 +1,14 @@
-"use client";
+'use client'
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-
-AiOutlineClockCircle;
 import { AiOutlineClockCircle } from "react-icons/ai";
 import axios from "axios";
 
 const BlogId = (params) => {
   const [data, setData] = useState({});
-  const [image, setImage] = useState([]);
   const [cards, setCards] = useState([]);
-  const [richText, setRichText] = useState({});
+  const [richTextArray, setRichTextArray] = useState([]); // Store rich text content for each card
   useEffect(() => {
     axios
       .get("http://localhost:8082/api/blogs")
@@ -19,18 +16,24 @@ const BlogId = (params) => {
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8082/api/blog-imgs")
-      .then((res) => setImage(res.data.data[0].attributes.images.urls))
-      .catch((err) => console.log(err));
-
-    axios
       .get("http://localhost:8082/api/blog-cards")
       .then((res) => setCards(res.data.data[0].attributes.card))
       .catch((err) => console.log(err));
 
+    // Fetch rich text content for each card and store it in richTextArray
     axios
       .get("http://localhost:8082/api/richtexts")
-      .then((res) => setRichText(res.data.data[0].attributes.rt))
+      .then((res) => setRichTextArray((prevState) => [...prevState, res.data.data[0].attributes.rt]))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:8082/api/richtext2s")
+      .then((res) => setRichTextArray((prevState) => [...prevState, res.data.data[0].attributes.rt2]))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:8082/api/richtext3s")
+      .then((res) => setRichTextArray((prevState) => [...prevState, res.data.data[0].attributes.rt3]))
       .catch((err) => console.log(err));
   }, []);
 
@@ -51,18 +54,15 @@ const BlogId = (params) => {
         {cards.map((card, i) => {
           if (params.params.blogId === card.id) {
             return (
-              <div className=" text-white   shadow_1  rounded-xl p-10 space-y-5">
+              <div className=" text-white   shadow_1  rounded-xl p-10 space-y-5" key={i}>
                 <img
-                  src={image[i]}
+                  src={card?.img}
                   alt=""
                   className="cursor-pointer w-80 h-52 lg:w-screen lg:h-[500px] rounded-xl  object-cover md:w-screen md:h-[500px]"
-
                 />
-
-             
                 <div className="text-xl text-justify leading-loose">
-                  {richText ? (
-                    <ReactMarkdown>{richText}</ReactMarkdown>
+                  {richTextArray[i] ? (
+                    <ReactMarkdown>{richTextArray[i]}</ReactMarkdown>
                   ) : (
                     "Loading rich text..."
                   )}
@@ -73,9 +73,9 @@ const BlogId = (params) => {
         })}
       </div>
 
-      <div class="flex justify-center items-center">
+      <div className="flex justify-center items-center">
         <button
-          class="mt-24 mb-10 text-white  shadow_1 hovred_bg transition-colors duration-400 hover:text-red-700 p-5 rounded"
+          className="mt-24 mb-10 text-white  shadow_1 hovred_bg transition-colors duration-400 hover:text-red-700 p-5 rounded"
           onClick={() => router.push("/")}
         >
           Go To Home page

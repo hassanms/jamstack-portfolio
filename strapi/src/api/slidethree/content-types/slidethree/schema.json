@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slidethrees",
+  "info": {
+    "singularName": "slidethree",
+    "pluralName": "slidethrees",
+    "displayName": "slidethree"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sl3": {
+      "type": "json"
+    }
+  }
+}

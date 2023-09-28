@@ -7,15 +7,13 @@ import axios from "axios";
 
 const Hero = () => {
   const [data, setData] = useState({});
-  console.log(data);
+ 
 
   useEffect(() => {
     axios
       .get(`http://localhost:8082/api/homes`)
       .then((res) => setData(res.data.data[0].attributes))
       .catch((err) => console.log(err));
-
-
   }, []);
 
   return (
@@ -37,16 +35,22 @@ const Hero = () => {
           <div>
             <h1>Find with me</h1>
 
-            <div className=" flex   mt-2 justify-between lg:space-x-7">
-              <button>
-                <FiFacebook className=" lg:w-8 lg:h-8 w-5 h-5" />
-              </button>
-              <button>
-                <FiInstagram className=" lg:w-8 lg:h-8 w-5 h-5" />
-              </button>
-              <button>
-                <FiLinkedin className=" lg:w-8 lg:h-8 w-5 h-5" />
-              </button>
+            <div className="flex mt-2 justify-between lg:space-x-7">
+              <a href="https://www.facebook.com" target="_blank">
+                <button>
+                  <FiFacebook className="lg:w-8 lg:h-8 w-5 h-5" />
+                </button>
+              </a>
+              <a href="https://www.instagram.com" target="_blank">
+                <button>
+                  <FiInstagram className="lg:w-8 lg:h-8 w-5 h-5" />
+                </button>
+              </a>
+              <a href="https://www.linkedin.com" target="_blank">
+                <button>
+                  <FiLinkedin className="lg:w-8 lg:h-8 w-5 h-5" />
+                </button>
+              </a>
             </div>
           </div>
 

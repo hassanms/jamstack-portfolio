@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Blog = () => {
   const [data, setData] = useState({});
-  const [image, setImage] = useState([]);
+  // const [image, setImage] = useState([]);
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -17,10 +17,10 @@ const Blog = () => {
       .then((res) => setData(res.data.data[0].attributes))
       .catch((err) => console.log(err));
 
-    axios
-      .get("http://localhost:8082/api/blog-imgs")
-      .then((res) => setImage(res.data.data[0].attributes.images.urls))
-      .catch((err) => console.log(err));
+    // axios
+    //   .get("http://localhost:8082/api/blog-imgs")
+    //   .then((res) => setImage(res.data.data[0].attributes.images.urls))
+    //   .catch((err) => console.log(err));
 
     axios
       .get("http://localhost:8082/api/blog-cards")
@@ -39,7 +39,7 @@ const Blog = () => {
 const router = useRouter();
 
 // const handleImageClick = (index) => {
-//   // const hashedId = handleEncrypt(index); // Hash the index using handleEncrypt
+//   // const hashedId = handleEncrypt(index); 
 //   router.push(`/${index}`); // Navigate using the hashed ID
 // };
   return (
@@ -62,7 +62,7 @@ const router = useRouter();
               <img
              onClick={() => router.push(`/${card.id}`)}
 
-                src={image[i]}
+                src={card?.img}
                 alt=""
                 className="cursor-pointer w-80 h-52 rounded-xl  object-cover transform transition-transform duration-300 hover:scale-110"
               />

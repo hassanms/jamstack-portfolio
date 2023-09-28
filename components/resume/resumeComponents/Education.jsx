@@ -9,7 +9,7 @@ const Education = () => {
 
   
   useEffect(() => {
-    console.log("first");
+  
     axios 
       .get("http://localhost:8082/api/education1s")
       .then((res) => setData(res.data.data[0].attributes))
