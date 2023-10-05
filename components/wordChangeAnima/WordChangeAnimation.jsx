@@ -9,13 +9,14 @@ const WordChangeAnimation = () => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
     }, 1500);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="container mx-auto mt-8">
-      <div className="text-2xl lg:text-5xl font-bold ">{words[currentWordIndex]}</div>
+      <div className="text-2xl lg:text-5xl font-bold ">
+        {words[currentWordIndex]}
+      </div>
     </div>
   );
 };

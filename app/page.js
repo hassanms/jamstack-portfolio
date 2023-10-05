@@ -9,12 +9,10 @@ import Client from "@/components/clients/Client";
 import Pricing from "@/components/pricing/Pricing";
 import Blog from "@/components/blog/Blog";
 import Contact from "@/components/contact/Contact";
-import { useRef, useState ,useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Footer from "@/components/footer/Footer";
-import { AiOutlineMenu , AiOutlineClose} from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
-// import Richtext from "@/components/richtext/richtext";
-
 
 export default function Home() {
   const homeRef = useRef();
@@ -25,11 +23,10 @@ export default function Home() {
   const pricingRef = useRef();
   const blogRef = useRef();
   const contactRef = useRef();
-
   const [isOpnedDrawer, setIsOpnedDrawer] = useState();
+  const [scrolled, setScrolled] = useState(false);
 
   const goToView = (name) => {
-  
     if (name === "home") {
       homeRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -72,8 +69,6 @@ export default function Home() {
     }
   };
 
-  const [scrolled, setScrolled] = useState(false);
-
   const handleScroll = () => {
     if (window.scrollY > 100) {
       setScrolled(true);
@@ -89,10 +84,9 @@ export default function Home() {
     };
   }, []);
 
-
   return (
     <main className=" p-8">
-  <div
+      <div
         className={`${
           scrolled
             ? "fixed top-0 left-0 space-x-14 justify-around   shadow_1  z-50 lg:w-screen hidden md:hidden"
@@ -101,16 +95,17 @@ export default function Home() {
       >
         <div>
           <Image
-            className="cursor-pointer "
+            className="cursor-pointer"
+            onClick={() => goToView("home")}
             src="/images/my-image.jpg"
             alt="My Image"
             width={150}
             height={100}
           />
         </div>
-        <div className="flex space-x-3  ">
+        <div className="flex space-x-12  ">
           <div>
-            <ul className="flex space-x-4 text-white mt-3 ">
+            <ul className="flex space-x-4  mt-3 ">
               <li onClick={() => goToView("home")} className="cursor-pointer">
                 HOME
               </li>
@@ -152,7 +147,6 @@ export default function Home() {
               </li>
             </ul>
           </div>
-
           <div>
             <button className="text-red-700  shadow_1 hovred_bg  rounded w-36 h-12 ">
               Buy Now
@@ -167,7 +161,6 @@ export default function Home() {
             : ""
         } lg:hidden items-center space-x-14 flex justify-between transition-all ease-in-out duration-300`}
       >
-      {/* "flex lg:hidden border-2 items-center justify-between " */}
         <div>
           <Image
             className="cursor-pointer "
@@ -177,7 +170,7 @@ export default function Home() {
             height={100}
           />
         </div>
-        <div  >
+        <div>
           <button
             onClick={() => setIsOpnedDrawer((prev) => !prev)}
             className="text-red-700  shadow_1 hovred_bg  rounded w-28 h-12 flex justify-center"
@@ -188,9 +181,8 @@ export default function Home() {
       </div>
 
       {isOpnedDrawer && (
-        <div className="lg:hidden h-screen top-0  fixed z-50  left-0 shadow_1 hovred_bg ml-5 p-8 md:w-96 w-72  text-white ">
+        <div className="lg:hidden h-screen top-0  fixed z-50  left-0 shadow_1 hovred_bg ml-5 p-8 md:w-96 w-72   ">
           <div className="flex justify-between">
-          
             <Image
               className="cursor-pointer"
               src="/images/my-image.jpg"
@@ -198,134 +190,122 @@ export default function Home() {
               width={150}
               height={100}
             />
-            
-            <div className="mt-7" onClick={()=>setIsOpnedDrawer(false)}><AiOutlineClose/></div>
-          </div>
-
-          <h1 className="mt-4">InBio is a persnol portfolio template. You can customize all</h1>
-
-         
-          <div className=" justify-start">
-            <ul className="  text-white mt-10 space-y-5 ">
-              <div onClick={()=>setIsOpnedDrawer(false)}>
-              <li onClick={() => goToView("home")} className="cursor-pointer">
-                HOME
-              </li>
-              </div>
-             <div onClick={()=>setIsOpnedDrawer(false)}>
-             <li
-                onClick={() => goToView("feature")}
-                className="cursor-pointer"
-              >
-                FEATURE
-              </li>
-             </div>
-           <div onClick={()=>setIsOpnedDrawer(false)}>
-           <li
-                onClick={() => goToView("portfolio")}
-                className="cursor-pointer"
-              >
-                PORTFOLIO
-              </li>
-           </div>
-              <div onClick={()=>setIsOpnedDrawer(false)}>
-              <li onClick={() => goToView("resume")} className="cursor-pointer">
-                RESUME
-              </li>
-              </div>
-             <div onClick={()=>setIsOpnedDrawer(false)}>
-             <li
-                onClick={() => goToView("clients")}
-                className="cursor-pointer"
-              >
-                CLIENTS
-              </li>
-             </div>
-              <div onClick={()=>setIsOpnedDrawer(false)}>
-              <li
-                onClick={() => goToView("pricing")}
-                className="cursor-pointer"
-              >
-                PRICING
-              </li>
-              </div>
-              <div onClick={()=>setIsOpnedDrawer(false)}>
-              <li onClick={() => goToView("blog")} className="cursor-pointer">
-                BLOG
-              </li>
-              </div>
-            <div onClick={()=>setIsOpnedDrawer(false)}>
-            <li
-                onClick={() => goToView("contact")}
-                className="cursor-pointer"
-              >
-                CONTACT
-              </li>
+            <div className="mt-7" onClick={() => setIsOpnedDrawer(false)}>
+              <AiOutlineClose />
             </div>
+          </div>
+          <h1 className="mt-4">
+            InBio is a persnol portfolio template. You can customize all
+          </h1>
+          <div className=" justify-start">
+            <ul className="   mt-10 space-y-5 ">
+              <div onClick={() => setIsOpnedDrawer(false)}>
+                <li onClick={() => goToView("home")} className="cursor-pointer">
+                  HOME
+                </li>
+              </div>
+              <div onClick={() => setIsOpnedDrawer(false)}>
+                <li
+                  onClick={() => goToView("feature")}
+                  className="cursor-pointer"
+                >
+                  FEATURE
+                </li>
+              </div>
+              <div onClick={() => setIsOpnedDrawer(false)}>
+                <li
+                  onClick={() => goToView("portfolio")}
+                  className="cursor-pointer"
+                >
+                  PORTFOLIO
+                </li>
+              </div>
+              <div onClick={() => setIsOpnedDrawer(false)}>
+                <li
+                  onClick={() => goToView("resume")}
+                  className="cursor-pointer"
+                >
+                  RESUME
+                </li>
+              </div>
+              <div onClick={() => setIsOpnedDrawer(false)}>
+                <li
+                  onClick={() => goToView("clients")}
+                  className="cursor-pointer"
+                >
+                  CLIENTS
+                </li>
+              </div>
+              <div onClick={() => setIsOpnedDrawer(false)}>
+                <li
+                  onClick={() => goToView("pricing")}
+                  className="cursor-pointer"
+                >
+                  PRICING
+                </li>
+              </div>
+              <div onClick={() => setIsOpnedDrawer(false)}>
+                <li onClick={() => goToView("blog")} className="cursor-pointer">
+                  BLOG
+                </li>
+              </div>
+              <div onClick={() => setIsOpnedDrawer(false)}>
+                <li
+                  onClick={() => goToView("contact")}
+                  className="cursor-pointer"
+                >
+                  CONTACT
+                </li>
+              </div>
             </ul>
           </div>
-
           <div className="mt-10">
-              <h1>Find with me</h1>
+            <h1>Find with me</h1>
 
-              <div className=" flex   mt-2  space-x-5 ">
-                <button >
-                  <FiFacebook className="  w-7 h-7"/>
-                </button>
-                <button >
-                  <FiInstagram className=" w-7 h-7"/>
-                </button>
-                <button >
-                  <FiLinkedin className="  w-7 h-7"/>
-                </button>
-              </div>
+            <div className=" flex   mt-2  space-x-5 ">
+              <button>
+                <FiFacebook className="  w-7 h-7" />
+              </button>
+              <button>
+                <FiInstagram className=" w-7 h-7" />
+              </button>
+              <button>
+                <FiLinkedin className="  w-7 h-7" />
+              </button>
             </div>
+          </div>
         </div>
       )}
-
       <div ref={homeRef}>
         <Hero />
       </div>
-
       <div ref={featureRef}>
         <Feature />
       </div>
-
       <div ref={portfolioRef}>
         <Portfolio />
       </div>
-
       <div ref={resumeRef}>
         <Resume />
       </div>
-
       <div>
         <Mainslide />
       </div>
-
       <div ref={clientsRef}>
         <Client />
       </div>
-
       <div ref={pricingRef}>
         <Pricing />
       </div>
-
       <div ref={blogRef}>
         <Blog />
       </div>
-
       <div ref={contactRef}>
         <Contact />
       </div>
-
       <div>
         <Footer />
       </div>
-{/* 
-      <div>
-        <Richtext/>
-      </div> */}
     </main>
   );
 }

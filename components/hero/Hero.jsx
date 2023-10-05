@@ -7,8 +7,6 @@ import axios from "axios";
 
 const Hero = () => {
   const [data, setData] = useState({});
- 
-
   useEffect(() => {
     axios
       .get(`http://localhost:8082/api/homes`)
@@ -17,24 +15,21 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex flex-col-reverse items-center text-white mt-12 lg:mt-10 lg:flex lg:flex-row lg:justify-around ">
-      <div className="space-y-4 mt-5 md:w-screen lg:w-1/2  p-10">
-        <p>{data?.hero_small}</p>
+    <div className="flex flex-col-reverse items-center  mt-12 lg:mt-20 lg:flex lg:flex-row  ">
+      <div className="space-y-4  md:w-screen lg:w-1/2  p-10">
+        <p className="lg:text-2xl">{data?.hero_small}</p>
         <div>
           <h1 className="text-3xl lg:text-6xl font-bold">
             Hi, i am <span className="text-red-700">Jone lee</span> a
           </h1>
           <WordChangeAnimation />
         </div>
-
-        <h2 className="text-xl  text-justify w-56  md:w-full lg:w-96">
+        <h2 className="text-xl 2xl:w-[700px]  text-justify w-56  md:w-full lg:w-96">
           {data?.desc}
         </h2>
-
-        <div className="flex lg:space-x-14 space-x-10 pt-16 lg:pt-36 md:">
+        <div className="flex lg:space-x-14 space-x-10 pt-16 lg:pt-34 md:">
           <div>
             <h1>Find with me</h1>
-
             <div className="flex mt-2 justify-between lg:space-x-7">
               <a href="https://www.facebook.com" target="_blank">
                 <button>
@@ -53,7 +48,6 @@ const Hero = () => {
               </a>
             </div>
           </div>
-
           <div>
             <h1>Best Skill On</h1>
             <div className="flex justify-between mt-2 lg:space-x-7">
@@ -82,10 +76,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
       <div>
         <img
-          className="shadow_1 md:w-screen lg:w-96"
+          className="shadow_1 md:w-screen lg:w-96 lg:ml-48 2xl:w-[500px] 2xl:mt-20"
           src={data?.hero_image1}
           alt="Hero Image"
           width={550}

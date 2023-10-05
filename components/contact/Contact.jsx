@@ -1,37 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
-import { AiOutlineArrowRight } from "react-icons/ai";
 import axios from "axios";
 
 const Contact = () => {
-  //   const[name  , setName] = useState("")
-  //   const[phone , setPhone] = useState("null")
-  //   const[email, setEmail] = useState("")
-  //   const[subject , setSubject] = useState("")
-  //   const[message, setMessage] = useState("")
-
-  // const sendMessage = async () => {
-  //   const url = 'http://localhost:1337/api/contacts';
-
-  //   const formData = {
-  //     data: {
-  //       name,
-  //       phone,
-  //       email,
-  //       subject,
-  //       message
-  //     },
-  //   };
-
-  //   try {
-  //     const response = await axios.post(url, formData);
-  //     console.log('Message sent successfully:', response.data);
-  //   } catch (error) {
-  //     console.error('Error sending message:', error);
-  //   }
-  // };
-
   const [data, setData] = useState({});
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/api/email", formData);
+      alert("Email sent successfully!");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("An error occurred while sending the email.");
+    }
+  };
+
   useEffect(() => {
     axios
       .get("http://localhost:8082/api/contacts")
@@ -43,15 +38,12 @@ const Contact = () => {
     <div className="mt-32">
       <div className="text-center space-y-5">
         <h1 className="text-red-700">{data?.heading1}</h1>
-        <h1 className="lg:text-5xl text-3xl font-bold text-white">
-          {data?.heading2}
-        </h1>
+        <h1 className="lg:text-5xl text-3xl font-bold ">{data?.heading2}</h1>
       </div>
-
       <div className="lg:flex mt-10 lg:justify-evenly">
         <div>
           <div>
-            <div className=" text-white lg:w-96 h-screen shadow_1  rounded-xl p-10 space-y-10 md:space-y-20 lg:space-y-5">
+            <div className="  lg:w-96 h-screen shadow_1  rounded-xl p-10 space-y-10 md:space-y-20 lg:space-y-5">
               <img
                 className="cursor-pointer  w-80 h-52 md:w-screen md:h-96 lg:w-80 lg:h-64  rounded-xl  object-cover transform transition-transform duration-300 hover:scale-110"
                 src={data?.img}
@@ -60,7 +52,7 @@ const Contact = () => {
                 height={500}
               />
               <div>
-                <div className="text-white lg:text-2xl text-2xl md:text-5xl font-bold">
+                <div className=" lg:text-2xl text-2xl md:text-5xl font-bold">
                   {data?.h1}
                 </div>
               </div>
@@ -76,7 +68,6 @@ const Contact = () => {
                   {data?.h5}
                 </h1>
                 <h1 className="md:text-xl lg:text-xs  ">Find with me</h1>
-
                 <div>
                   <div className="space-x-10 mt-1">
                     <a href="https://www.facebook.com" target="_blank">
@@ -100,60 +91,70 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
-        <div className=" shadow_1 lg:w-1/2.5 lg:p-10 p-5 rounded mt-5 lg:mt-0 md:p-10">
-          <div className="lg:flex lg:space-x-1">
-            <div className="space-y-2">
-              <h1 className="text-white md: text-xl">Your Name</h1>
-              <input
-                // onChange={(e) => setName(e.target.value)}
-                className="lg:w-48 md:w-[600px] w-64 h-10 rounded  bg-gray-950  text-white"
-                type="text"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <h1 className="text-white md:text-xl">Phone No</h1>
-              <input
-                // onChange={(e) => setPhone(e.target.value)}
-                className="lg:w-48 w-64 md:w-[600px] h-10 rounded bg-gray-950 border-red-700 text-white"
-                type="text"
-              />
-            </div>
-          </div>
-
-          <div className="mt-5 space-y-2">
-            <h1 className="text-white text-xl">Email</h1>
+        <form
+          onSubmit={handleSubmit}
+          className="lg:w-[500px] p-6 shadow_1 shadow-md rounded-lg"
+        >
+          <div className="mb-4">
+            <label htmlFor="name" className="block  font-bold">
+              Name
+            </label>
             <input
-              // onChange={(e) => setEmail(e.target.value)}
-              className="lg:w-96 w-64 md:w-[600px] h-10 rounded  bg-gray-950 border-red-700 text-white"
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border  rounded-md focus:outline-none focus:border-red-700"
             />
           </div>
-
-          <div className="mt-5 space-y-5">
-            <h1 className="text-white md:text-xl">Subject</h1>
+          <div className="mb-4">
+            <label htmlFor="email" className="block  font-bold">
+              Email
+            </label>
             <input
-              // onChange={(e) => setSubject(e.target.value)}
-              className="lg:w-96 w-64 md:w-[600px] h-10 rounded  bg-gray-950 border-red-700 text-white"
-              type="text"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-red-700"
             />
           </div>
-
-          <div className="mt-5 space-y-5">
-            <h1 className="text-white md:text-xl">Your Message</h1>
+          <div className="mb-4">
+            <label htmlFor="phone" className="block  font-bold">
+              Phone
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-red-700"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="message" className="block  font-bold">
+              Message
+            </label>
             <textarea
-              // onChange={(e) => setMessage(e.target.value)}
-              className="lg:w-96 w-64 md:w-[600px] h-40 rounded bg-gray-950 border-red-700 border-none text-white resize-none break-all"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-10 border border-gray-300 rounded-md focus:outline-none focus:border-red-700"
             ></textarea>
           </div>
-
-          <div className="text-white  font-bold transition-colors duration-500 hover:text-red-700 mt-8 flex space-x-1">
-            {/* onClick={sendMessage} */}
-            <button className="md:text-xl ">Send Message</button>
-            <AiOutlineArrowRight className="mt-1 " />
+          <div className="text-center lg:mt-16">
+            <button
+              type="submit"
+              className="  py-3 px-4 rounded-md shadow_1 hovred_bg focus:outline-none"
+            >
+              Send Message
+            </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

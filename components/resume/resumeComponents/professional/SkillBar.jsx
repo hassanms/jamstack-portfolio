@@ -4,8 +4,8 @@ const SkillBar = ({ skill, percentage }) => {
   return (
     <div className="mb-4">
       <div className="flex items-center justify-between">
-        <div className="text-sm text-white">{skill}</div>
-        <div className="text-sm text-white">{percentage}%</div>
+        <div className="text-sm">{skill}</div>
+        <div className="text-sm">{percentage}%</div>
       </div>
       <div className="relative mt-2 h-2 bg-black rounded">
         <div
@@ -14,7 +14,7 @@ const SkillBar = ({ skill, percentage }) => {
         ></div>
       </div>
     </div>
-  );  
+  );
 };
 
 export default SkillBar;
