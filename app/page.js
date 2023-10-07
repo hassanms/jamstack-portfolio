@@ -84,6 +84,15 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (localStorage.getItem("fromBlog")) {
+        goToView("blog");
+        localStorage.setItem("fromBlog", false);
+      }
+    }, 1000);
+  }, []);
+
   return (
     <main className=" p-8">
       <div
@@ -91,11 +100,11 @@ export default function Home() {
           scrolled
             ? "fixed top-0 left-0 space-x-14 justify-around   shadow_1  z-50 lg:w-screen hidden md:hidden"
             : "hidden"
-        } lg:flex items-center space-x-14 justify-around transition-all ease-in-out duration-300`}
+        } lg:flex items-center space-x-14 justify-around transition-all ease-in-out duration-300 `}
       >
         <div>
           <Image
-            className="cursor-pointer"
+            className="cursor-pointer 2xl:mr-[400px] 2xl:w-80 2xl:h-36"
             onClick={() => goToView("home")}
             src="/images/my-image.jpg"
             alt="My Image"
@@ -105,7 +114,7 @@ export default function Home() {
         </div>
         <div className="flex space-x-12  ">
           <div>
-            <ul className="flex space-x-4  mt-3 ">
+            <ul className="flex space-x-4  mt-3 2xl:text-2xl">
               <li onClick={() => goToView("home")} className="cursor-pointer">
                 HOME
               </li>
@@ -148,7 +157,7 @@ export default function Home() {
             </ul>
           </div>
           <div>
-            <button className="text-red-700  shadow_1 hovred_bg  rounded w-36 h-12 ">
+            <button className="text-red-700  shadow_1 hovred_bg  rounded w-36 h-12 2xl:w-48 2xl:h-14 2xl:text-2xl">
               Buy Now
             </button>
           </div>

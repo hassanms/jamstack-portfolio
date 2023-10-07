@@ -47,15 +47,17 @@ body {
 }
 
 
-.shadow_1{
-  box-shadow:  10px 10px 19px #1c1e22,-10px -10px 19px #262a2e;
-  background-image: linear-gradient(120deg ,#1c1f22,#262a2e); 
-  transition: 1s;
+.shadow_1 {
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+  background: linear-gradient(120deg, #1c1f22, #262a2e); 
+  transition: background-position 0.5s; 
+  background-size: 200% 100%; 
+  background-position: 0 0; 
+}
+.shadow_1:hover {
+  background-position: 100% 0; 
 }
 
-.hovred_bg:hover {
-  background-image: linear-gradient(120deg, #262a2e ,#1c1f22);
-}
 
 @keyframes growFromLeft {
   0% {

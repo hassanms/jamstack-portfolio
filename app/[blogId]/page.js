@@ -58,6 +58,11 @@ const BlogId = (params) => {
     <AiOutlineClockCircle />,
   ];
 
+  const goToHome = () => {
+    router.push("/");
+    localStorage.setItem("fromBlog", true);
+  };
+
   return (
     <div className="mt-5 lg:-mt-32  items-center lg:p-40">
       <div className="text-center space-y-4 ">
@@ -88,7 +93,7 @@ const BlogId = (params) => {
       <div className="flex justify-center items-center">
         <button
           className="mt-24 mb-10  shadow_1 hovred_bg transition-colors duration-400 hover:text-red-700 p-5 rounded"
-          onClick={() => router.push("/")}
+          onClick={goToHome}
         >
           Go To Home page
         </button>

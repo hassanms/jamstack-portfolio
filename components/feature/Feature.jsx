@@ -38,14 +38,12 @@ const Feature = () => {
     <div className="lg:mt-28 mt-28 ">
       <div className="space-y-4 text-center  lg:justify-center ">
         <h1 className="text-red-800 text-xl">{data?.h1}</h1>
-        <h1 className="lg:text-6xl text-4xl font-bold">
-          {data?.heading}
-        </h1>
+        <h1 className="lg:text-6xl text-4xl font-bold">{data?.heading}</h1>
       </div>
-      <div className="flex  flex-wrap items-center mt-5 lg:mt-10 space-x-2  md:justify-center">
+      <div className="flex  flex-wrap items-center mt-5 lg:mt-10 space-x-2  md:justify-center 2xl:space-x-5 2xl:space-y-5">
         {cards.map((card, i) => {
           return (
-            <div className="lg:w-96 lg:h-80  w-80 h-80 shadow_1 2xl:w-[550px] hovred_bg rounded-xl p-10 space-y-8">
+            <div className="transition-all lg:w-96 lg:h-80 2xl:w-[420px] w-80 h-80 shadow_1  hovred_bg rounded-xl p-10 space-y-8">
               <div>
                 <div>{icons[i]}</div>
               </div>

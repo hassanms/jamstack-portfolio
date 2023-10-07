@@ -15,7 +15,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex flex-col-reverse items-center  mt-12 lg:mt-20 lg:flex lg:flex-row  ">
+    <div className="flex flex-col-reverse items-center  mt-12 lg:mt-20 lg:flex lg:flex-row  2xl:p-10">
       <div className="space-y-4  md:w-screen lg:w-1/2  p-10">
         <p className="lg:text-2xl">{data?.hero_small}</p>
         <div>
@@ -78,7 +78,7 @@ const Hero = () => {
       </div>
       <div>
         <img
-          className="shadow_1 md:w-screen lg:w-96 lg:ml-48 2xl:w-[500px] 2xl:mt-20"
+          className=" shadow_1 md:w-screen lg:w-96 lg:ml-48 2xl:w-[500px] 2xl:mt-20"
           src={data?.hero_image1}
           alt="Hero Image"
           width={550}

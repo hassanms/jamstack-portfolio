@@ -4,7 +4,8 @@
   "info": {
     "singularName": "card1",
     "pluralName": "card1s",
-    "displayName": "card1"
+    "displayName": "feature-card1",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

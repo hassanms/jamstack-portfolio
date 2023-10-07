@@ -11,12 +11,12 @@ const Javascript = () => {
   }, []);
 
   return (
-    <div className="lg:flex lg:space-x-5 ">
+    <div className="lg:flex lg:space-x-5">
       <div>
         <div className="lg:flex md:flex space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0 ">
           <div className="shadow_1 hovred_bg rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img1}
               alt="My Image"
               width={850}
@@ -28,7 +28,7 @@ const Javascript = () => {
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img2}
               alt="My Image"
               width={850}
@@ -40,7 +40,7 @@ const Javascript = () => {
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img3}
               alt="My Image"
               width={850}
@@ -54,7 +54,7 @@ const Javascript = () => {
         <div className="lg:flex md:flex space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0">
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img4}
               alt="My Image"
               width={850}
@@ -66,7 +66,7 @@ const Javascript = () => {
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img5}
               alt="My Image"
               width={850}
@@ -78,7 +78,7 @@ const Javascript = () => {
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img6}
               alt="My Image"
               width={850}
@@ -92,7 +92,7 @@ const Javascript = () => {
         <div className="lg:flex md:flex space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0 ">
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img7}
               alt="My Image"
               width={850}
@@ -104,7 +104,7 @@ const Javascript = () => {
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img8}
               alt="My Image"
               width={850}
@@ -116,7 +116,7 @@ const Javascript = () => {
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
-              className="cursor-pointer w-48 h-32"
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
               src={data?.img9}
               alt="My Image"
               width={850}

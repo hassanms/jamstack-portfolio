@@ -25,7 +25,7 @@ const Mainslide = () => {
           {data?.heading2}
         </h1>
       </div>
-      <div className="flex lg:absolute justify-end lg:right-48 space-x-3 lg:mt-28 mt-10">
+      <div className="flex lg:absolute justify-end lg:right-48 space-x-3 lg:mt-28 mt-10 2xl:mr-16 2xl:mb-10">
         <div>
           <button
             onClick={() => {
@@ -33,7 +33,7 @@ const Mainslide = () => {
                 setCurrentpage(currentPage === 0 ? 2 : currentPage - 1);
             }}
           >
-            <AiOutlineArrowLeft className="w-8 h-8  hover:text-red-700" />
+            <AiOutlineArrowLeft className="w-8 h-8 2xl:w-14 2xl:h-14  hover:text-red-700" />
           </button>
         </div>
         <div>
@@ -43,7 +43,7 @@ const Mainslide = () => {
                 setCurrentpage(currentPage === 2 ? 0 : currentPage + 1);
             }}
           >
-            <AiOutlineArrowRight className="w-8 h-8  hover:text-red-700" />
+            <AiOutlineArrowRight className="w-8 h-8 2xl:w-14 2xl:h-14 hover:text-red-700" />
           </button>
         </div>
       </div>

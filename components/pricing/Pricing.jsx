@@ -27,14 +27,14 @@ const Pricing = () => {
           <div className=" font-bold text-5xl">{data?.heading2}</div>
         </div>
         <div>
-          <div className="lg:flex items-center ">
-            <div className="rounded shadow_1  lg:w-52 lg:h-16 text-center p-5 text-xl font-bold hover:text-red-700">
+          <div className="lg:flex 2xl:space-x-5 items-center 2xl:w-[1200px] ">
+            <div className="rounded shadow_1 2xl:w-[500px] 2xl:h-24 2xl:text-3xl 2xl:p-8 lg:w-52 lg:h-16 text-center p-5 text-xl font-bold hover:text-red-700">
               <button onClick={() => changeDiv("Basic")}>Basic</button>
             </div>
-            <div className="rounded shadow_1 hovred_bg lg:w-52 lg:h-16 text-center p-5 text-xl font-bold  hover:text-red-700">
+            <div className="rounded shadow_1 2xl:w-[500px] lg:w-52 2xl:h-24 2xl:text-3xl 2xl:p-8 lg:h-16 text-center p-5 text-xl font-bold  hover:text-red-700">
               <button onClick={() => changeDiv("Standard")}>Standard</button>
             </div>
-            <div className="rounded shadow_1 hovred_bg lg:w-52 lg:h-16 text-center p-5 text-xl font-bold  hover:text-red-700">
+            <div className="rounded shadow_1 2xl:w-[500px] 2xl:h-24 2xl:text-3xl 2xl:p-8 lg:w-52 lg:h-16 text-center p-5 text-xl font-bold  hover:text-red-700">
               <button onClick={() => changeDiv("Premium")}>Premium</button>
             </div>
           </div>
