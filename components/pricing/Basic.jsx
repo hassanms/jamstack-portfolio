@@ -11,7 +11,7 @@ const Basic = () => {
   useEffect(() => {
     axios
       .get("http://localhost:8082/api/basic-prices")
-      .then((res) => setData(res.data.data[0].attributes.price[0]))
+      .then((res) => setData())
       .catch((err) => console.log(err));
   }, []);
 
