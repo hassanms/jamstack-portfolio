@@ -4,14 +4,8 @@ import { AiOutlineHeart } from "react-icons/ai";
 import axios from "axios";
 
 const Portfolio = () => {
-  const [data, setData] = useState({});
   const [cards, setCards] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/api/portfolios")
-      .then((res) => setData(res.data.data[0].attributes))
-      .catch((err) => console.log(err));
-
     axios
       .get("http://localhost:8082/api/portofliocards")
       .then((res) => setCards(res.data.data[0].attributes.pf))
@@ -30,8 +24,10 @@ const Portfolio = () => {
   return (
     <div>
       <div className="text-center mt-28 lg:mt-28 space-y-8">
-        <h1 className="text-red-700">{data?.title}</h1>
-        <h1 className=" lg:text-6xl text-4xl font-bold">{data?.heading}</h1>
+        <h1 className="text-red-700">
+          VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK
+        </h1>
+        <h1 className=" lg:text-6xl text-4xl font-bold">My Portfolio</h1>
       </div>
       <div className="flex flex-wrap justify-center lg:space-y-0 lg:space-x-2 space-y-5 md:space-x-3 md:space-y-0 mt-5 lg:mt-10 ]">
         {cards.map((card, i) => {

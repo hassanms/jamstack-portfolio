@@ -15,6 +15,15 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 
 export default function Home() {
+
+  const isProduction = process.env.NODE_ENV === 'production';
+const BASE_URL = isProduction
+? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+: process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
+
+console.log('Production Environment:', isProduction);
+console.log('BASE_URL:', BASE_URL);
+
   const homeRef = useRef();
   const featureRef = useRef();
   const portfolioRef = useRef();
@@ -104,12 +113,12 @@ export default function Home() {
       >
         <div>
           <Image
-            className="cursor-pointer 2xl:mr-[400px] 2xl:w-80 2xl:h-36"
+            className="cursor-pointer 2xl:mr-[400px] 2xl:w-80 2xl:h-36  lg:w-40 lg:h-20"
             onClick={() => goToView("home")}
             src="/images/my-image.jpg"
             alt="My Image"
-            width={150}
-            height={100}
+            width={450}
+            height={500}
           />
         </div>
         <div className="flex space-x-12  ">

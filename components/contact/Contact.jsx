@@ -29,16 +29,16 @@ const Contact = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/contacts")
-      .then((res) => setData(res.data.data[0].attributes))
+      .get("http://localhost:8082/api/contactsses")
+      .then((res) => setData(res.data.data[0].attributes.contact[0]))
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className="mt-32">
       <div className="text-center space-y-5">
-        <h1 className="text-red-700">{data?.heading1}</h1>
-        <h1 className="lg:text-5xl text-3xl font-bold ">{data?.heading2}</h1>
+        <h1 className="text-red-700">CONTACT</h1>
+        <h1 className="lg:text-5xl text-3xl font-bold ">Contact With Me </h1>
       </div>
       <div className="lg:flex mt-10 lg:justify-evenly">
         <div>

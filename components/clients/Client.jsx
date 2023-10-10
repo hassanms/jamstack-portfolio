@@ -6,27 +6,18 @@ import Wordpress from "./Wordpress";
 import HtmltoReact from "./HtmltoReact";
 import ReactToLaravel from "./ReactToLaravel";
 import Python from "./Python";
-import axios from "axios";
 
 const Client = () => {
-  const [data, setData] = useState({});
   const [tech, setTech] = useState("Javascript");
   const changeDiv = (val) => {
     setTech(val);
   };
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8082/api/clients")
-      .then((res) => setData(res.data.data[0].attributes))
-      .catch((err) => console.log(err));
-  }, []);
-
   return (
     <div className="mt-28 lg:mt-28">
       <div className="text-center">
-        <div className="text-red-700">{data?.heading1}</div>
-        <div className="text-5xl font-bold">{data?.heading2}</div>
+        <div className="text-red-700">POPULAR CLIENTS</div>
+        <div className="text-5xl font-bold">Awesome Client</div>
       </div>
       <div className="flex mt-24 lg:mt-10 lg:space-y-10 lg:ml-0 pos ml-8 md:justify-center">
         <div className="lg:flex">

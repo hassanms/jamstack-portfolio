@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "richtext10s",
+  "info": {
+    "singularName": "richtext10",
+    "pluralName": "richtext10s",
+    "displayName": "blog-richtext",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rt1": {
+      "type": "richtext"
+    },
+    "rt2": {
+      "type": "richtext"
+    },
+    "rt3": {
+      "type": "richtext"
+    }
+  }
+}

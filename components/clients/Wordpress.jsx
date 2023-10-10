@@ -5,7 +5,7 @@ const Wordpress = () => {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/client-wordprs")
+      .get("http://localhost:8082/api/clients ")
       .then((res) => setData(res.data.data[0].attributes.wd[0]))
       .catch((err) => console.log(err));
   }, []);

@@ -10,24 +10,14 @@ const Interview = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/interview1s")
-      .then((res) => setData(res.data.data[0].attributes))
-      .catch((err) => console.log(err));
-
-    axios
-      .get("http://localhost:8082/api/resume-interview1s")
+      .get("http://localhost:8082/api/resumes")
       .then((res) => setCard1(res.data.data[0].attributes.int))
       .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/interview2s")
-      .then((res) => setData2(res.data.data[0].attributes))
-      .catch((err) => console.log(err));
-
-    axios
-      .get("http://localhost:8082/api/resume-interview2s")
+      .get("http://localhost:8082/api/resumes")
       .then((res) => setCard2(res.data.data[0].attributes.inter))
       .catch((err) => console.log(err));
   }, []);
@@ -37,8 +27,8 @@ const Interview = () => {
       <div className="mt-5 ">
         <div className="flex  lg:justify-center  items-start space-x-10 md:justify-evenly ">
           <div className="space-y-5">
-            <h1 className="text-red-700">{data?.year}</h1>
-            <h1 className=" lg:text-4xl font-bold">{data?.heading}</h1>
+            <h1 className="text-red-700">2007 - 2010</h1>
+            <h1 className=" lg:text-4xl font-bold">Educational Quallity</h1>
           </div>
         </div>
         <div className="flex 2xl:space-y-4 md:justify-center flex-wrap lg:space-y-2  lg:items-center lg:space-x-0  md:space-y-0 mt-10 space-y-5 md:space-x-3">
@@ -68,8 +58,8 @@ const Interview = () => {
       <div className="mt-5 ">
         <div className="flex lg:mr-24 lg:justify-center items-start space-x-10 md:justify-evenly ">
           <div className="space-y-5">
-            <h1 className="text-red-700">{data2?.years}</h1>
-            <h1 className=" lg:text-4xl font-bold ">{data2?.heading}</h1>
+            <h1 className="text-red-700">2007 - 2010</h1>
+            <h1 className=" lg:text-4xl font-bold ">Job experience</h1>
           </div>
         </div>
         <div className="flex 2xl:space-y-4 md:justify-center flex-wrap lg:space-y-2  lg:items-center lg:space-x-0  md:space-y-0 mt-10 space-y-5 md:space-x-3">

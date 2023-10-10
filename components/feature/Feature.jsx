@@ -11,14 +11,8 @@ import {
 } from "react-icons/ai";
 
 const Feature = () => {
-  const [data, setData] = useState({});
   const [cards, setCards] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:8082/api/features")
-      .then((res) => setData(res.data.data[0].attributes))
-      .catch((err) => console.log(err));
-
     axios
       .get("http://localhost:8082/api/card1s")
       .then((res) => setCards(res.data.data[0].attributes.data))
@@ -37,8 +31,8 @@ const Feature = () => {
   return (
     <div className="lg:mt-28 mt-28 ">
       <div className="space-y-4 text-center  lg:justify-center ">
-        <h1 className="text-red-800 text-xl">{data?.h1}</h1>
-        <h1 className="lg:text-6xl text-4xl font-bold">{data?.heading}</h1>
+        <h1 className="text-red-800 text-xl">Features</h1>
+        <h1 className="lg:text-6xl text-4xl font-bold">What i do</h1>
       </div>
       <div className="flex  flex-wrap items-center mt-5 lg:mt-10 space-x-2  md:justify-center 2xl:space-x-5 2xl:space-y-5">
         {cards.map((card, i) => {

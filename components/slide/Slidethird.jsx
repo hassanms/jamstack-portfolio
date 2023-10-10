@@ -7,7 +7,7 @@ const SlideThird = ({ slideDirection }) => {
   const [data, setdata] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/slidethrees")
+      .get("http://localhost:8082/api/silders")
       .then((res) => setdata(res.data.data[0].attributes.sl3[0]))
       .catch((err) => console.log(err));
   }, []);

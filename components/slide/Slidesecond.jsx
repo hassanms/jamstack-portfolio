@@ -7,7 +7,7 @@ const Slidesecond = ({ slideDirection }) => {
   const [data, setdata] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/slidetwos")
+      .get("http://localhost:8082/api/silders")
       .then((res) => setdata(res.data.data[0].attributes.sl2[0]))
       .catch((err) => console.log(err));
   }, []);

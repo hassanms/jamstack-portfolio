@@ -10,8 +10,8 @@ const Standard = () => {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/standard-prices")
-      .then((res) => setData(res.data.data[0].attributes.price[0]))
+      .get("http://localhost:8082/api/pricings")
+      .then((res) => setData(res.data.data[0].attributes.StandardPrice[0]))
       .catch((err) => console.log(err));
   }, []);
 

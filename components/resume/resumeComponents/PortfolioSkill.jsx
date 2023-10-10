@@ -6,7 +6,7 @@ const PortfolioSkill = () => {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/resume-skillbars")
+      .get("http://localhost:8082/api/resumes")
       .then((res) => setData(res.data.data[0].attributes.sk[0]))
       .catch((err) => console.log(err));
   }, []);

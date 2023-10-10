@@ -11,11 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "heading1": {
-      "type": "string"
+    "BasicPrice": {
+      "type": "json"
     },
-    "heading2": {
-      "type": "string"
+    "StandardPrice": {
+      "type": "json"
+    },
+    "PremiumPrice": {
+      "type": "json"
     }
   }
 }

@@ -4,18 +4,9 @@ import Education from "./resumeComponents/Education";
 import Experience from "./resumeComponents/Experience";
 import Interview from "./resumeComponents/Interview";
 import PortfolioSkill from "./resumeComponents/PortfolioSkill";
-import axios from "axios";
 
 const Resume = () => {
   const [currentPage, setCurrentpage] = useState("education");
-  const [data, setData] = useState({});
-  useEffect(() => {
-    axios
-      .get("http://localhost:8082/api/my-resumes")
-      .then((res) => setData(res.data.data[0].attributes))
-      .catch((err) => console.log(err));
-  }, []);
-
   const changeDiv = (val) => {
     setCurrentpage(val);
   };
@@ -24,8 +15,8 @@ const Resume = () => {
     <div>
       <div className="mt-28 lg:mt-28">
         <div className="text-center space-y-8">
-          <h1 className="text-red-700">{data?.heading}</h1>
-          <h1 className="font-bold lg:text-6xl text-3xl">{data?.heading1}</h1>
+          <h1 className="text-red-700">7+ YEARS OF EXPERIANCE</h1>
+          <h1 className="font-bold lg:text-6xl text-3xl">MY RESUME</h1>
         </div>
         <div className="flex flex-wrap  mt-5  lg:mt-10 rounded justify-center  lg:justify-evenly space-x-4  p-5">
           <div>

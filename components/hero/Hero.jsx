@@ -6,6 +6,11 @@ import WordChangeAnimation from "../wordChangeAnima/WordChangeAnimation";
 import axios from "axios";
 
 const Hero = () => {
+   
+  // const isProduction = process.env.NODE_ENV === 'production';
+  // const BASE_URL = isProduction
+  // ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+  // : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
   const [data, setData] = useState({});
   useEffect(() => {
     axios
@@ -16,7 +21,7 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col-reverse items-center  mt-12 lg:mt-20 lg:flex lg:flex-row  2xl:p-10">
-      <div className="space-y-4  md:w-screen lg:w-1/2  p-10">
+      <div className="space-y-4   lg:w-1/2  p-10">
         <p className="lg:text-2xl">{data?.hero_small}</p>
         <div>
           <h1 className="text-3xl lg:text-6xl font-bold">
@@ -78,7 +83,7 @@ const Hero = () => {
       </div>
       <div>
         <img
-          className=" shadow_1 md:w-screen lg:w-96 lg:ml-48 2xl:w-[500px] 2xl:mt-20"
+          className=" shadow_1 md:w-screen lg:w-96 lg:ml-32 2xl:w-[500px] 2xl:mt-20"
           src={data?.hero_image1}
           alt="Hero Image"
           width={550}

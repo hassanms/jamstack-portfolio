@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resumes",
+  "info": {
+    "singularName": "resume",
+    "pluralName": "resumes",
+    "displayName": "Resume",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "education": {
+      "type": "json"
+    },
+    "job": {
+      "type": "json"
+    },
+    "ex": {
+      "type": "json"
+    },
+    "exx": {
+      "type": "json"
+    },
+    "int": {
+      "type": "json"
+    },
+    "inter": {
+      "type": "json"
+    },
+    "sk": {
+      "type": "json"
+    }
+  }
+}

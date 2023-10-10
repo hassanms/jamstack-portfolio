@@ -5,17 +5,17 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import axios from "axios";
 
 const Blog = () => {
-  const [data, setData] = useState({});
   const [cards, setCards] = useState([]);
   const router = useRouter();
+
+  const isProduction = process.env.NODE_ENV === 'production';
+  const BASE_URL = isProduction
+  ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+  : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
+
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/blogs")
-      .then((res) => setData(res.data.data[0].attributes))
-      .catch((err) => console.log(err));
-
-    axios
-      .get("http://localhost:8082/api/blog-cards")
+      .get(`${BASE_URL}api/blogs`)
       .then((res) => setCards(res.data.data[0].attributes.card))
       .catch((err) => console.log(err));
   }, []);
@@ -27,10 +27,10 @@ const Blog = () => {
   ];
 
   return (
-    <div className="mt-24  items-center 2xl:mt-0">
+    <div className="mt-24  items-center 2xl:mt-44">
       <div className=" text-center space-y-4 ">
-        <h1 className="text-red-700">{data?.heading1}</h1>
-        <h1 className="lg:text-6xl text-4xl font-bold">{data?.heading2}</h1>
+        <h1 className="text-red-700">VISIT MY BLOG AND KEEP YUR FEEDBACK</h1>
+        <h1 className="lg:text-6xl text-4xl font-bold">My Blog</h1>
       </div>
       <div className="flex flex-wrap lg:space-x-4 mt-14 lg:space-y-0 space-y-5 md:justify-center ">
         {cards.map((card, i) => {

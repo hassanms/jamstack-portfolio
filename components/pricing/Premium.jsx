@@ -10,8 +10,8 @@ const Premium = () => {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/premium-prices")
-      .then((res) => setData(res.data.data[0].attributes.price[0]))
+      .get("http://localhost:8082/api/pricings")
+      .then((res) => setData(res.data.data[0].attributes.PremiumPrice[0]))
       .catch((err) => console.log(err));
   }, []);
   return (

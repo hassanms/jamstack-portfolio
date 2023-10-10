@@ -11,11 +11,8 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "heading1": {
-      "type": "string"
-    },
-    "heading2": {
-      "type": "string"
+    "card": {
+      "type": "json"
     }
   }
 }

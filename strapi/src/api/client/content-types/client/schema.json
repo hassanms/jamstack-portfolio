@@ -11,11 +11,23 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "heading1": {
-      "type": "string"
+    "js": {
+      "type": "json"
     },
-    "heading2": {
-      "type": "string"
+    "pd": {
+      "type": "json"
+    },
+    "wd": {
+      "type": "json"
+    },
+    "hr": {
+      "type": "json"
+    },
+    "rl": {
+      "type": "json"
+    },
+    "py": {
+      "type": "json"
     }
   }
 }
