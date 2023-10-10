@@ -3,9 +3,15 @@ import axios from "axios";
 
 const Productdesign = () => {
   const [data, setData] = useState({});
+
+  const isProduction = process.env.NODE_ENV === "production";
+  const BASE_URL = isProduction
+    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
+
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/clients ")
+      .get(`${BASE_URL}api/clients`)
       .then((res) => setData(res.data.data[0].attributes.pd[0]))
       .catch((err) => console.log(err));
   }, []);

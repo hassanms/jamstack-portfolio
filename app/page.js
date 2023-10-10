@@ -15,14 +15,14 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 
 export default function Home() {
+  
+  const isProduction = process.env.NODE_ENV == "production";
+  const BASE_URL = isProduction
+    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
 
-  const isProduction = process.env.NODE_ENV === 'production';
-const BASE_URL = isProduction
-? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-: process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
-console.log('Production Environment:', isProduction);
-console.log('BASE_URL:', BASE_URL);
+  console.log('Production Environment:', isProduction);
+  console.log('BASE_URL:', BASE_URL);
 
   const homeRef = useRef();
   const featureRef = useRef();

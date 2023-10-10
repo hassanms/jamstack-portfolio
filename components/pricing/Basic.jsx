@@ -8,9 +8,15 @@ import {
 
 const Basic = () => {
   const [data, setData] = useState({});
+
+  const isProduction = process.env.NODE_ENV === "production";
+  const BASE_URL = isProduction
+    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
+
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/pricings")
+      .get(`${BASE_URL}api/pricings`)
       .then((res) => setData(res.data.data[0].attributes.BasicPrice[0]))
       .catch((err) => console.log(err));
   }, []);

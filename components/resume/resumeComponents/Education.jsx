@@ -6,16 +6,21 @@ const Education = () => {
   const [cards, setCards] = useState([]);
   const [cards2, setCards2] = useState([]);
 
+  const isProduction = process.env.NODE_ENV === "production";
+  const BASE_URL = isProduction
+    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
+
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/resumes")
+      .get(`${BASE_URL}api/resumes`)
       .then((res) => setCards(res.data.data[0].attributes.education))
       .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/resumes")
+      .get(`${BASE_URL}api/resumes`)
       .then((res) => setCards2(res.data.data[0].attributes.job))
       .catch((err) => console.log(err));
   }, []);

@@ -7,14 +7,15 @@ import axios from "axios";
 
 const Hero = () => {
    
-  // const isProduction = process.env.NODE_ENV === 'production';
-  // const BASE_URL = isProduction
-  // ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-  // : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
+  const isProduction = process.env.NODE_ENV === 'production';
+  const BASE_URL = isProduction
+  ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+  : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
+
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get(`http://localhost:8082/api/homes`)
+      .get(`${BASE_URL}api/homes`)
       .then((res) => setData(res.data.data[0].attributes))
       .catch((err) => console.log(err));
   }, []);

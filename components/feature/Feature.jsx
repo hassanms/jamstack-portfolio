@@ -12,9 +12,15 @@ import {
 
 const Feature = () => {
   const [cards, setCards] = useState([]);
+
+  const isProduction = process.env.NODE_ENV === "production";
+  const BASE_URL = isProduction
+    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
+    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
+
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/card1s")
+      .get(`${BASE_URL}api/card1s`)
       .then((res) => setCards(res.data.data[0].attributes.data))
       .catch((err) => console.log(err));
   }, []);
