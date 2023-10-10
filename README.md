@@ -1,27 +1,21 @@
-This is a portfolio app for which following languages is used.
-For front-end i used next.js.
-For back-end i used Strapi.
-And i used CSS framework i-e TailwindCss for styling.
+This is a portfolio application
 
-## Getting Started with next.js
+Next.js, TailwinCSS, Strapi.
 
-Open project on vs code , then open the new terminal , go to the app directory by " cd app " and run the command i-e npm run dev.
-u will see the link in your terminal " http://localhost:3000 " open it to your browser to see the view of the project.
+### For Frontend
 
-## Pakages installed 
-// fetching API data through axious 
-npm install axios
+* cd app
+* npm i
+* npm run dev
 
-// react icons
-npm install react-icons --save
+### For Backend
 
-// React Mark Down for strapi richtext (bold , itallic etc will work through this pakage)
-npm install react-markdown
+* cd strapi
+* npm i
+* npm run develop
 
-## version required
-node version 16.17.0
- 
-
+## Node Version
+* 16.17.0
 
 
 ## Getting Started with Strapi
