@@ -21,8 +21,8 @@ export default function Home() {
     ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
     : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
 
-  console.log('Production Environment:', isProduction);
-  console.log('BASE_URL:', BASE_URL);
+  // console.log('Production Environment:', isProduction);
+  // console.log('BASE_URL:', BASE_URL);
 
   const homeRef = useRef();
   const featureRef = useRef();
