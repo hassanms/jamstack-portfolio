@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Productdesign = () => {
   const [data, setData] = useState({});
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/clients`)
-      .then((res) => setData(res.data.data[0].attributes.pd[0]))
+      .get(`${baseUrl}api/clients`)
+      .then((res) => {
+        const responseData = res.data.data[0].attributes.pd[0];
+        const dataArray = [];
+
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            dataArray.push({ key, value: responseData[key] });
+          }
+        }
+        setData(dataArray);
+        // console.log(dataArray)
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -23,37 +30,37 @@ const Productdesign = () => {
           <div className="shadow_1 hovred_bg rounded p-8">
             <img
               className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
-              src={data?.img1}
+              src={data[0]?.value}
               alt="My Image"
               width={850}
               height={500}
             />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head1}
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[1]?.value}
             </div>
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
               className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
-              src={data?.img2}
+              src={data[2]?.value}
               alt="My Image"
               width={850}
               height={500}
             />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head2}
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[3]?.value}
             </div>
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
               className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
-              src={data?.img3}
+              src={data[4]?.value}
               alt="My Image"
               width={850}
               height={500}
             />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head3}
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[5]?.value}
             </div>
           </div>
         </div>
@@ -61,37 +68,37 @@ const Productdesign = () => {
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
               className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
-              src={data?.img4}
+              src={data[6]?.value}
               alt="My Image"
               width={850}
               height={500}
             />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head4}
-            </div>
-          </div>
-          <div className="shadow_1 hovred_bg  rounded p-8">
-            <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60v"
-              src={data?.img5}
-              alt="My Image"
-              width={850}
-              height={500}
-            />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head5}
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[7]?.value}
             </div>
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
               className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
-              src={data?.img6}
+              src={data[8]?.value}
               alt="My Image"
               width={850}
               height={500}
             />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head6}
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[9]?.value}
+            </div>
+          </div>
+          <div className="shadow_1 hovred_bg  rounded p-8">
+            <img
+              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              src={data[10]?.value}
+              alt="My Image"
+              width={850}
+              height={500}
+            />
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[11]?.value}
             </div>
           </div>
         </div>
@@ -99,37 +106,37 @@ const Productdesign = () => {
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
               className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
-              src={data?.img7}
+              src={data[12]?.value}
               alt="My Image"
               width={850}
               height={500}
             />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head7}
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[13]?.value}
             </div>
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
               className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
-              src={data?.img8}
+              src={data[14]?.value}
               alt="My Image"
               width={850}
               height={500}
             />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head8}
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[15]?.value}
             </div>
           </div>
           <div className="shadow_1 hovred_bg  rounded p-8">
             <img
               className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
-              src={data?.img9}
+              src={data[16]?.value}
               alt="My Image"
               width={850}
               height={500}
             />
-            <div className=" mt-8 text-center text-2xl font-bold">
-              {data?.head9}
+            <div className="mt-8 text-center text-2xl font-bold">
+              {data[17]?.value}
             </div>
           </div>
         </div>

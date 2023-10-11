@@ -11,8 +11,8 @@ baseUrl = isProduction
 
 const NEXT_PUBLIC_PROD = isProduction;
 
-console.log('Production Environment:', isProduction);
-console.log('BASE_URL:', baseUrl);
+// console.log('Production Environment:', isProduction);
+// console.log('BASE_URL:', baseUrl);
 
 module.exports = {
   baseUrl,

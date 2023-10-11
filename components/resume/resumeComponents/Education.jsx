@@ -1,27 +1,45 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Education = () => {
   const [cards, setCards] = useState([]);
   const [cards2, setCards2] = useState([]);
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/resumes`)
-      .then((res) => setCards(res.data.data[0].attributes.education))
+      .get(`${baseUrl}api/resumes`)
+      .then((res) => {
+        const responseData = res.data.data[0].attributes.education;
+        const dataArray = [];
+  
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            dataArray.push({ key, value: responseData[key] });
+          }
+        }
+        setCards(dataArray);
+        // console.log(dataArray)
+      })
       .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/resumes`)
-      .then((res) => setCards2(res.data.data[0].attributes.job))
+      .get(`${baseUrl}api/resumes`)
+      .then((res) => {
+        const responseData = res.data.data[0].attributes.job;
+        const dataArray = [];
+  
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            dataArray.push({ key, value: responseData[key] });
+          }
+        }
+        setCards2(dataArray);
+        // console.log(dataArray)
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -39,19 +57,19 @@ const Education = () => {
             return (
               <div className="  lg:w-96 2xl:w-[550px] 2xl:h-96 2xl:space-y-10 md:w-80   h-80 shadow_1 hovred_bg rounded p-5 space-y-2 ">
                 <div className="lg:text-3xl 2xl:text-4xl text-xl font-bold">
-                  <div>{card.heading}</div>
+                  <div>{card.value.heading}</div>
                 </div>
                 <div className="flex space-x-24 2xl:text-2xl">
                   <div>
-                    <div>{card.uni}</div>
+                    <div>{card.value.uni}</div>
                   </div>
                   <div className="text-red-700">
-                    <div>{card.rate}</div>
+                    <div>{card.value.rate}</div>
                   </div>
                 </div>
                 <hr />
                 <div className="2xl:text-xl">
-                  <div>{card.body}</div>
+                  <div>{card.value.body}</div>
                 </div>
               </div>
             );
@@ -70,19 +88,19 @@ const Education = () => {
             return (
               <div className="  lg:w-96 2xl:w-[550px] 2xl:h-96 2xl:space-y-10 md:w-80   h-80 shadow_1 hovred_bg rounded p-5 space-y-2 ">
                 <div className="lg:text-3xl 2xl:text-4xl text-xl font-bold">
-                  <div>{card.heading2}</div>
+                  <div>{card.value.heading2}</div>
                 </div>
                 <div className="flex space-x-24 2xl:text-2xl">
                   <div>
-                    <div>{card.uni2}</div>
+                    <div>{card.value.uni2}</div>
                   </div>
                   <div className="text-red-700">
-                    <div>{card.rate2}</div>
+                    <div>{card.value.rate2}</div>
                   </div>
                 </div>
                 <hr />
                 <div className="2xl:text-xl">
-                  <div>{card.body2}</div>
+                  <div>{card.value.body2}</div>
                 </div>
               </div>
             );

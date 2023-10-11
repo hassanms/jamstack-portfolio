@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const BlogId = (params) => {
   const [data, setData] = useState({});
@@ -13,17 +14,39 @@ const BlogId = (params) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/blogs")
-      .then((res) => setData(res.data.data[0].attributes))
-      .catch((err) => console.log(err));
+    .get(`${baseUrl}api/blogs`)
+    .then((res) => {
+      const responseData = res.data.data[0].attributes;
+      const dataArray = [];
+
+      for (const key in responseData) {
+        if (responseData.hasOwnProperty(key)) {
+          dataArray.push({ key, value: responseData[key] });
+        }
+      }
+      setData(dataArray);
+      console.log(dataArray)
+    })
+    .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8082/api/blogs")
-      .then((res) => setCards(res.data.data[0].attributes.card))
-      .catch((err) => console.log(err));
+    .get(`${baseUrl}api/blogs`)
+    .then((res) => {
+      const responseData = res.data.data[0].attributes.card;
+      const dataArray = [];
+
+      for (const key in responseData) {
+        if (responseData.hasOwnProperty(key)) {
+          dataArray.push({ key, value: responseData[key] });
+        }
+      }
+      setCards(dataArray);
+      console.log(dataArray)
+    })
+    .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8082/api/richtext10s")
+      .get(`${baseUrl}api/richtext10s`)
       .then((res) => {
         const richTextData = res.data.data[0].attributes;
         const richTextArray = [
@@ -54,11 +77,11 @@ const BlogId = (params) => {
       </div>
       <div className="lg:space-x-4 mt-14 lg:space-y-0 space-y-5 md:justify-center">
         {cards.map((card, i) => {
-          if (params.params.blogId === card.id) {
+          if (params.params.blogId === card.value.id) {
             return (
-              <div className="shadow_1 rounded-xl p-10 space-y-5" key={i}>
+              <div className="shadow_1 rounded-xl p-10 space-y-5">
                 <img
-                  src={card?.img}
+                  src={card?.value.img}
                   alt=""
                   className="cursor-pointer w-80 h-52 lg:w-screen lg:h-[500px] rounded-xl  object-cover md:w-screen md:h-[500px]"
                 />

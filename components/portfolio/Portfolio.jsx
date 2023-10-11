@@ -2,19 +2,26 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Portfolio = () => {
   const [cards, setCards] = useState([]);
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/portofliocards`)
-      .then((res) => setCards(res.data.data[0].attributes.pf))
+      .get(`${baseUrl}api/portofliocards`)
+      .then((res) => {
+        const responseData = res.data.data[0].attributes.pf;
+        const dataArray = [];
+  
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            dataArray.push({ key, value: responseData[key] });
+          }
+        }
+        setCards(dataArray);
+        // console.log(dataArray)
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -40,7 +47,7 @@ const Portfolio = () => {
           return (
             <div className="w-80 h-96 lg:w-96 2xl:w-[430px] shadow_1 hovred_bg  rounded-xl p-8 space-y-4 ">
               <img
-                src={card?.img}
+                src={card?.value.img}
                 alt=""
                 className="cursor-pointer 2xl:w-[350px] 2xl:ml-5 w-80 h-52 rounded-xl  object-cover transform transition-transform duration-300 hover:scale-110"
               />
@@ -51,12 +58,12 @@ const Portfolio = () => {
                     <div> {icons[i]}</div>
                   </div>
                   <div>
-                    <div>{card.heart}</div>
+                    <div>{card?.value.heart}</div>
                   </div>
                 </div>
               </div>
               <div className="text-xl font-bold transition-colors duration-500  hover:text-red-700 2xl:ml-5">
-                <div>{card.body}</div>
+                <div>{card?.value.body}</div>
               </div>
             </div>
           );

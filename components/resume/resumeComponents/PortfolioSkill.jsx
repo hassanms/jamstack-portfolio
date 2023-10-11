@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import SkillBar from "./professional/SkillBar";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const PortfolioSkill = () => {
   const [data, setData] = useState({});
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/resumes`)
-      .then((res) => setData(res.data.data[0].attributes.sk[0]))
+      .get(`${baseUrl}api/resumes`)
+      .then((res) => {
+        const responseData = res.data.data[0].attributes.sk[0];
+        const dataArray = [];
+
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            dataArray.push({ key, value: responseData[key] });
+          }
+        }
+        setData(dataArray);
+        // console.log(dataArray);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -23,15 +30,15 @@ const PortfolioSkill = () => {
         <h1 className="text-xl font-bold mb-4 text-red-700">Features</h1>
         <h1 className=" text-2xl">Design Skills</h1>
         <div className="lg:w-96">
-          <SkillBar skill="HTML" percentage={data?.html} />
-          <SkillBar skill="CSS" percentage={data?.css} />
-          <SkillBar skill="JavaScript" percentage={data?.javascript} />
-          <SkillBar skill="React" percentage={data?.react} />
-          <SkillBar skill="Node" percentage={data?.node} />
-          <SkillBar skill="NextJs" percentage={data?.nextjs} />
-          <SkillBar skill="Python" percentage={data?.python} />
-          <SkillBar skill="Tailwind" percentage={data?.tailwind} />
-          <SkillBar skill="Django" percentage={data?.django} />
+          <SkillBar skill="HTML" percentage={data[0]?.value} />
+          <SkillBar skill="CSS" percentage={data[1]?.value} />
+          <SkillBar skill="JavaScript" percentage={data[2]?.value} />
+          <SkillBar skill="React" percentage={data[3]?.value} />
+          <SkillBar skill="Node" percentage={data[4]?.value} />
+          <SkillBar skill="NextJs" percentage={data[5]?.value} />
+          <SkillBar skill="Python" percentage={data[6]?.value} />
+          <SkillBar skill="Tailwind" percentage={data[7]?.value} />
+          <SkillBar skill="Django" percentage={data[8]?.value} />
         </div>
       </div>
       <div>
@@ -42,15 +49,15 @@ const PortfolioSkill = () => {
           </div>
           <div>
             <div className="lg:w-96">
-              <SkillBar skill="HTML" percentage={data?.html} />
-              <SkillBar skill="CSS" percentage={data?.css} />
-              <SkillBar skill="JavaScript" percentage={data?.javascript} />
-              <SkillBar skill="React" percentage={data?.react} />
-              <SkillBar skill="Node" percentage={data?.node} />
-              <SkillBar skill="NextJs" percentage={data?.nextjs} />
-              <SkillBar skill="Python" percentage={data?.python} />
-              <SkillBar skill="Tailwind" percentage={data?.tailwind} />
-              <SkillBar skill="Django" percentage={data?.django} />
+              <SkillBar skill="HTML" percentage={data[0]?.value} />
+              <SkillBar skill="CSS" percentage={data[1]?.value} />
+              <SkillBar skill="JavaScript" percentage={data[2]?.value} />
+              <SkillBar skill="React" percentage={data[3]?.value} />
+              <SkillBar skill="Node" percentage={data[4]?.value} />
+              <SkillBar skill="NextJs" percentage={data[5]?.value} />
+              <SkillBar skill="Python" percentage={data[6]?.value} />
+              <SkillBar skill="Tailwind" percentage={data[7]?.value} />
+              <SkillBar skill="Django" percentage={data[8]?.value} />
             </div>
           </div>
         </div>

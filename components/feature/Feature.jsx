@@ -9,19 +9,26 @@ import {
   AiOutlineApple,
   AiFillSlackCircle,
 } from "react-icons/ai";
+import { baseUrl } from "@/baseUrl";
 
 const Feature = () => {
   const [cards, setCards] = useState([]);
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/card1s`)
-      .then((res) => setCards(res.data.data[0].attributes.data))
+      .get(`${baseUrl}api/card1s`)
+      .then((res) => {
+        const responseData = res.data.data[0].attributes.data;
+        const dataArray = [];
+  
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            dataArray.push({ key, value: responseData[key] });
+          }
+        }
+        setCards(dataArray);
+        // console.log(dataArray)
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -42,15 +49,16 @@ const Feature = () => {
       </div>
       <div className="flex  flex-wrap items-center mt-5 lg:mt-10 space-x-2  md:justify-center 2xl:space-x-5 2xl:space-y-5">
         {cards.map((card, i) => {
+          console.log(card)
           return (
-            <div className="transition-all lg:w-96 lg:h-80 2xl:w-[420px] w-80 h-80 shadow_1  hovred_bg rounded-xl p-10 space-y-8">
+            <div  className="transition-all lg:w-96 lg:h-80 2xl:w-[420px] w-80 h-80 shadow_1  hovred_bg rounded-xl p-10 space-y-8">
               <div>
                 <div>{icons[i]}</div>
               </div>
               <div className="lg:text-3xl text-2xl font-bold">
-                {card.heading}
+                {card.value?.heading}
               </div>
-              <div>{card.body}</div>
+              <div>{card.value?.body}</div>
             </div>
           );
         })}

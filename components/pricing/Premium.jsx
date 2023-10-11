@@ -1,3 +1,4 @@
+import { baseUrl } from "@/baseUrl";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
@@ -9,35 +10,42 @@ import {
 const Premium = () => {
   const [data, setData] = useState({});
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/pricings`)
-      .then((res) => setData(res.data.data[0].attributes.PremiumPrice[0]))
+      .get(`${baseUrl}api/pricings`)
+      .then((res) => {
+        const responseData = res.data.data[0].attributes.PremiumPrice[0];
+        const dataArray = [];
+
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            dataArray.push({ key, value: responseData[key] });
+          }
+        }
+        setData(dataArray);
+        console.log(dataArray);
+      })
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <div className="shadow_1 hovred_bg rounded p-10 mt-5 2xl:p-20 ">
       <div className=" lg:flex mt-5  lg:space-x-20  justify-around">
         <div className="">
           <h1 className="lg:text-4xl text-2xl 2xl:text-7xl">
-            {data?.heading1}
+            {data[0]?.value}
           </h1>
           <h1 className="text-xl opacity-25 2xl:text-3xl 2xl:mt-4">
-            {data?.heading2}
+            {data[1]?.value}
           </h1>
         </div>
         <div className="text-red-700 text-3xl 2xl:text-5xl 2xl:mt-3">
-          {data?.dollar}
+          {data[3]?.value}
         </div>
       </div>
       <div className=" mt-10">
         <p className="text-xl opacity-25 lg:w-96 2xl:text-2xl">
-          {data?.heading3}
+          {data[2]?.value}
         </p>
       </div>
       <div className="lg:flex lg:space-x-10 mt-5 text-xl ">
@@ -63,12 +71,12 @@ const Premium = () => {
             </div>
           </div>
           <div className="space-y-5 text-xs lg:text-xl md:text-3xl 2xl:text-3xl 2xl:mt-1">
-            <div>{data?.h1}</div>
-            <div>{data?.h2}</div>
-            <div>{data?.h3}</div>
-            <div>{data?.h4}</div>
-            <div>{data?.h5}</div>
-            <div>{data?.h6}</div>
+            <div>{data[4]?.value}</div>
+            <div>{data[5]?.value}</div>
+            <div>{data[6]?.value}</div>
+            <div>{data[7]?.value}</div>
+            <div>{data[8]?.value}</div>
+            <div>{data[9]?.value}</div>
           </div>
         </div>
         <div className="flex space-x-2 mt-5 lg:mt-0">
@@ -93,12 +101,12 @@ const Premium = () => {
             </div>
           </div>
           <div className="space-y-5 text-xs lg:text-xl md:text-3xl 2xl:text-3xl 2xl:mt-1">
-            <div>{data?.h7}</div>
-            <div>{data?.h8}</div>
-            <div>{data?.h9}</div>
-            <div>{data?.h10}</div>
-            <div>{data?.h11}</div>
-            <div>{data?.h12}</div>
+            <div>{data[10]?.value}</div>
+            <div>{data[11]?.value}</div>
+            <div>{data[12]?.value}</div>
+            <div>{data[13]?.value}</div>
+            <div>{data[14]?.value}</div>
+            <div>{data[15]?.value}</div>
           </div>
         </div>
       </div>
@@ -110,13 +118,13 @@ const Premium = () => {
           <div className="mt-1">
             <AiOutlineClockCircle />
           </div>
-          <div>{data?.h13}</div>
+          <div>{data[16]?.value}</div>
         </div>
         <div className="flex mt-3 text-center space-x-2 lg:text-sm md:text-2xl  2xl:text-3xl">
           <div className="mt-1">
             <AiOutlineStock />
           </div>
-          <div>{data?.h14}</div>
+          <div>{data[17]?.value}</div>
         </div>
       </div>
     </div>

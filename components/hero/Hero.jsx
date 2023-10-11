@@ -6,7 +6,6 @@ import WordChangeAnimation from "../wordChangeAnima/WordChangeAnimation";
 import axios from "axios";
 import { baseUrl } from "@/baseUrl";
 
-
 const Hero = () => {
    
 console.log(baseUrl)
@@ -15,14 +14,25 @@ console.log(baseUrl)
   useEffect(() => {
     axios
       .get(`${baseUrl}api/homes`)
-      .then((res) => setData(res.data.data[0].attributes))
+      .then((res) => {
+        const responseData = res.data.data[0].attributes;
+        const dataArray = [];
+
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            dataArray.push({ key, value: responseData[key] });
+          }
+        }
+        setData(dataArray);
+        // console.log(dataArray)
+      })
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className="flex flex-col-reverse items-center  mt-12 lg:mt-20 lg:flex lg:flex-row  2xl:p-10">
       <div className="space-y-4   lg:w-1/2  p-10">
-        <p className="lg:text-2xl">{data?.hero_small}</p>
+        <p className="lg:text-2xl">{data[3]?.value}</p>
         <div>
           <h1 className="text-3xl lg:text-6xl font-bold">
             Hi, i am <span className="text-red-700">Jone lee</span> a
@@ -30,7 +40,7 @@ console.log(baseUrl)
           <WordChangeAnimation />
         </div>
         <h2 className="text-xl 2xl:w-[700px]  text-justify w-56  md:w-full lg:w-96">
-          {data?.desc}
+          {data[5]?.value}
         </h2>
         <div className="flex lg:space-x-14 space-x-10 pt-16 lg:pt-34 md:">
           <div>
@@ -84,7 +94,7 @@ console.log(baseUrl)
       <div>
         <img
           className=" shadow_1 md:w-screen lg:w-96 lg:ml-32 2xl:w-[500px] 2xl:mt-20"
-          src={data?.hero_image1}
+          src={data[6]?.value}
           alt="Hero Image"
           width={550}
           height={650}
