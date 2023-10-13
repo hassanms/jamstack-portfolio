@@ -8,8 +8,6 @@ import { baseUrl } from "@/baseUrl";
 
 
 const Hero = () => {
-   
-console.log(baseUrl)
 
   const [data, setData] = useState({});
   useEffect(() => {

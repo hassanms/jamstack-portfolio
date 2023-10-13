@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const BlogId = (params) => {
   const [data, setData] = useState({});
@@ -13,17 +14,17 @@ const BlogId = (params) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/blogs")
+      .get(`${baseUrl}api/blogs`)
       .then((res) => setData(res.data.data[0].attributes))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8082/api/blogs")
+      .get(`${baseUrl}api/blogs`)
       .then((res) => setCards(res.data.data[0].attributes.card))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:8082/api/richtext10s")
+      .get(`${baseUrl}api/richtext10s`)
       .then((res) => {
         const richTextData = res.data.data[0].attributes;
         const richTextArray = [

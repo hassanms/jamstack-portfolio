@@ -3,19 +3,15 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Blog = () => {
   const [cards, setCards] = useState([]);
   const router = useRouter();
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/blogs`)
+      .get(`${baseUrl}api/blogs`)
       .then((res) => setCards(res.data.data[0].attributes.card))
       .catch((err) => console.log(err));
   }, []);

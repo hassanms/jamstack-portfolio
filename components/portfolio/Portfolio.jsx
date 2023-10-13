@@ -2,18 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Portfolio = () => {
   const [cards, setCards] = useState([]);
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/portofliocards`)
+      .get(`${baseUrl}api/portofliocards`)
       .then((res) => setCards(res.data.data[0].attributes.pf))
       .catch((err) => console.log(err));
   }, []);

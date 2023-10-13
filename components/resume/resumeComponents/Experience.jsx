@@ -1,26 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Experience = () => {
   const [card1, setCard1] = useState([]);
   const [card2, setCard2] = useState([]);
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/resumes`)
+      .get(`${baseUrl}api/resumes`)
       .then((res) => setCard1(res.data.data[0].attributes.ex))
       .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/resumes`)
+      .get(`${baseUrl}api/resumes`)
       .then((res) => setCard2(res.data.data[0].attributes.exx))
       .catch((err) => console.log(err));
   }, []);

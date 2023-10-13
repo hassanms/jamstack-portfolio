@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Contact = () => {
   const [data, setData] = useState({});
@@ -27,14 +28,9 @@ const Contact = () => {
     }
   };
 
-  const isProduction = process.env.NODE_ENV === 'production';
-  const BASE_URL = isProduction
-  ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-  : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/contactsses`)
+      .get(`${baseUrl}api/contactsses`)
       .then((res) => setData(res.data.data[0].attributes.contact[0]))
       .catch((err) => console.log(err));
   }, []);

@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Wordpress = () => {
   const [data, setData] = useState({});
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/clients`)
+      .get(`${baseUrl}api/clients`)
       .then((res) => setData(res.data.data[0].attributes.wd[0]))
       .catch((err) => console.log(err));
   }, []);

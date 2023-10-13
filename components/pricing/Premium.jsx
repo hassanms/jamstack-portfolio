@@ -1,3 +1,4 @@
+import { baseUrl } from "@/baseUrl";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
@@ -16,7 +17,7 @@ const Premium = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/pricings`)
+      .get(`${baseUrl}api/pricings`)
       .then((res) => setData(res.data.data[0].attributes.PremiumPrice[0]))
       .catch((err) => console.log(err));
   }, []);

@@ -1,28 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Interview = () => {
-  const [data, setData] = useState({});
   const [card1, setCard1] = useState([]);
-  const [data2, setData2] = useState({});
   const [card2, setCard2] = useState([]);
-
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/resumes`)
+      .get(`${baseUrl}api/resumes`)
       .then((res) => setCard1(res.data.data[0].attributes.int))
       .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/resumes`)
+      .get(`${baseUrl}api/resumes`)
       .then((res) => setCard2(res.data.data[0].attributes.inter))
       .catch((err) => console.log(err));
   }, []);

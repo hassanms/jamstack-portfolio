@@ -2,18 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineSlack } from "react-icons/ai";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const SlideThird = ({ slideDirection }) => {
   const [data, setdata] = useState({});
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/silders`)
+      .get(`${baseUrl}api/silders`)
       .then((res) => setdata(res.data.data[0].attributes.sl3[0]))
       .catch((err) => console.log(err));
   }, []);

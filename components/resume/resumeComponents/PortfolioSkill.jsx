@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import SkillBar from "./professional/SkillBar";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const PortfolioSkill = () => {
   const [data, setData] = useState({});
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/resumes`)
+      .get(`${baseUrl}api/resumes`)
       .then((res) => setData(res.data.data[0].attributes.sk[0]))
       .catch((err) => console.log(err));
   }, []);

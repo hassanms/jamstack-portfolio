@@ -5,18 +5,14 @@ import {
   AiOutlineClockCircle,
   AiOutlineStock,
 } from "react-icons/ai";
+import { baseUrl } from "@/baseUrl";
 
 const Basic = () => {
   const [data, setData] = useState({});
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/pricings`)
+      .get(`${baseUrl}api/pricings`)
       .then((res) => setData(res.data.data[0].attributes.BasicPrice[0]))
       .catch((err) => console.log(err));
   }, []);

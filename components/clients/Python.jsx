@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { baseUrl } from "@/baseUrl";
 
 const Python = () => {
   const [data, setData] = useState({});
@@ -11,7 +12,7 @@ const Python = () => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}api/clients`)
+      .get(`${baseUrl}api/clients`)
       .then((res) => setData(res.data.data[0].attributes.py[0]))
       .catch((err) => console.log(err));
   }, []);
