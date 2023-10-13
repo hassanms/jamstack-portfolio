@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 import axios from "axios";
 import { baseUrl } from "@/baseUrl";
+import { contact } from "@/data";
 
 const Contact = () => {
-  const [data, setData] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,12 +28,6 @@ const Contact = () => {
     }
   };
 
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}api/contactsses`)
-      .then((res) => setData(res.data.data[0].attributes.contact[0]))
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <div className="mt-32">
@@ -46,26 +40,27 @@ const Contact = () => {
           <div className="2xl:w-[600px] 2xl:h-[800px] lg:w-96 h-screen shadow_1  rounded-xl p-10 space-y-10 md:space-y-20 lg:space-y-5">
             <img
               className="cursor-pointer 2xl:w-[500px] 2xl:h-[350px] w-80 h-52 md:w-screen md:h-96 lg:w-80 lg:h-64  rounded-xl  object-cover transform transition-transform duration-300 hover:scale-110"
-              src={data?.img}
+              src={contact[0].attributes.contact[0]?.img}
               alt="My Image"
               width={400}
               height={500}
             />
+            
             <div>
               <div className=" 2xl:text-4xl lg:text-2xl text-2xl md:text-5xl font-bold">
-                {data?.h1}
+                {contact[0].attributes.contact?.h1}
               </div>
             </div>
             <div className="space-y-2 2xl:space-y-4">
               <h1 className="2xl:text-3xl text-xl md:text-3xl lg:text-xl font-bold">
-                {data?.h2}
+                {contact[0].attributes.contact[0]?.h2}
               </h1>
-              <h1 className="2xl:text-2xl md:text-xl lg:text-xs">{data?.h3}</h1>
+              <h1 className="2xl:text-2xl md:text-xl lg:text-xs">{contact[0].attributes.contact[0]?.h3}</h1>
               <h1 className="2xl:text-2xl  transition-colors duration-500 hover:text-red-700 md:text-xl lg:text-xs">
-                {data?.h4}
+                {contact[0].attributes.contact[0]?.h4}
               </h1>
               <h1 className="2xl:text-2xl  transition-colors duration-500 hover:text-red-700 md:text-xl lg:text-xs">
-                {data?.h5}
+                {contact[0].attributes.contact[0]?.h5}
               </h1>
               <h1 className="md:text-xl lg:text-xs 2xl:text-2xl  ">
                 Find with me

@@ -4,17 +4,10 @@ import { useRouter } from "next/navigation";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import axios from "axios";
 import { baseUrl } from "@/baseUrl";
+import { blog } from "@/data";
 
 const Blog = () => {
-  const [cards, setCards] = useState([]);
   const router = useRouter();
-
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}api/blogs`)
-      .then((res) => setCards(res.data.data[0].attributes.card))
-      .catch((err) => console.log(err));
-  }, []);
 
   const icons = [
     <AiOutlineClockCircle />,
@@ -29,7 +22,7 @@ const Blog = () => {
         <h1 className="lg:text-6xl text-4xl font-bold">My Blog</h1>
       </div>
       <div className="flex flex-wrap lg:space-x-4 mt-14 lg:space-y-0 space-y-5 md:justify-center ">
-        {cards.map((card, i) => {
+        {blog[0].attributes.card.map((card, i) => {
           return (
             <div className="2xl:w-[550px] 2xl:h-[600px] lg:w-96 w-80 h-96  shadow_1 hovred_bg rounded-xl p-10 space-y-5 2xl:p-20">
               <img

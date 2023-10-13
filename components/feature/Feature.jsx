@@ -10,16 +10,9 @@ import {
   AiFillSlackCircle,
 } from "react-icons/ai";
 import { baseUrl } from "@/baseUrl";
+import { feature } from "@/data";
 
 const Feature = () => {
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}api/card1s`)
-      .then((res) => setCards(res.data.data[0].attributes.data))
-      .catch((err) => console.log(err));
-  }, []);
 
   const icons = [
     <AiOutlineMenu className="text-red-800 w-9 h-9 font-bold" />,
@@ -37,7 +30,7 @@ const Feature = () => {
         <h1 className="lg:text-6xl text-4xl font-bold">What i do</h1>
       </div>
       <div className="flex  flex-wrap items-center mt-5 lg:mt-10 space-x-2  md:justify-center 2xl:space-x-5 2xl:space-y-5">
-        {cards.map((card, i) => {
+        {feature[0].attributes.data.map((card, i) => {
           return (
             <div className="transition-all lg:w-96 lg:h-80 2xl:w-[420px] w-80 h-80 shadow_1  hovred_bg rounded-xl p-10 space-y-8">
               <div>

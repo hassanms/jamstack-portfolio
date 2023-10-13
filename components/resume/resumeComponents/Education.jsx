@@ -2,24 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { baseUrl } from "@/baseUrl";
+import { resume } from "@/data";
 
 const Education = () => {
-  const [cards, setCards] = useState([]);
-  const [cards2, setCards2] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}api/resumes`)
-      .then((res) => setCards(res.data.data[0].attributes.education))
-      .catch((err) => console.log(err));
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}api/resumes`)
-      .then((res) => setCards2(res.data.data[0].attributes.job))
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <div className="lg:flex md:flex ">
@@ -31,7 +17,7 @@ const Education = () => {
           </div>
         </div>
         <div className="flex 2xl:space-y-4 md:justify-center flex-wrap lg:space-y-2  lg:items-center lg:space-x-0  md:space-y-0 mt-10 space-y-5 md:space-x-3">
-          {cards.map((card) => {
+          {resume[0].attributes.education.map((card) => {
             return (
               <div className="  lg:w-96 2xl:w-[550px] 2xl:h-96 2xl:space-y-10 md:w-80   h-80 shadow_1 hovred_bg rounded p-5 space-y-2 ">
                 <div className="lg:text-3xl 2xl:text-4xl text-xl font-bold">
@@ -62,7 +48,7 @@ const Education = () => {
           </div>
         </div>
         <div className="flex 2xl:space-y-4 md:justify-center flex-wrap lg:space-y-2  lg:items-center lg:space-x-0  md:space-y-0 mt-10 space-y-5 md:space-x-3">
-          {cards2.map((card) => {
+          {resume[0].attributes.job.map((card) => {
             return (
               <div className="  lg:w-96 2xl:w-[550px] 2xl:h-96 2xl:space-y-10 md:w-80   h-80 shadow_1 hovred_bg rounded p-5 space-y-2 ">
                 <div className="lg:text-3xl 2xl:text-4xl text-xl font-bold">
