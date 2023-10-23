@@ -13,8 +13,8 @@ const WordChangeAnimation = () => {
   }, []);
 
   return (
-    <div className="container mx-auto mt-8">
-      <div className="text-2xl lg:text-5xl font-bold ">
+    <div className="container mx-auto mt-3">
+      <div className="text-2xl lg:text-5xl font-bold md:text-3xl text-white">
         {words[currentWordIndex]}
       </div>
     </div>

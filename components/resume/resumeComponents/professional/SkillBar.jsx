@@ -9,7 +9,7 @@ const SkillBar = ({ skill, percentage }) => {
       </div>
       <div className="relative mt-2 h-2 bg-black rounded">
         <div
-          className="absolute increase top-0 left-0 h-2 bg-red-700 rounded"
+          className="absolute increase top-0 left-0 h-2 bg-[#ff014f] rounded"
           style={{ width: `${percentage}%` }}
         ></div>
       </div>

@@ -5,11 +5,6 @@ import { baseUrl } from "@/baseUrl";
 const Python = () => {
   const [data, setData] = useState({});
 
-  const isProduction = process.env.NODE_ENV === "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
   useEffect(() => {
     axios
       .get(`${baseUrl}api/clients`)
@@ -18,12 +13,12 @@ const Python = () => {
   }, []);
 
   return (
-    <div className="lg:flex lg:space-x-5 ">
+    <div className="lg:flex  lg:space-x-5 ">
       <div>
-        <div className="lg:flex md:flex space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0 ">
-          <div className="shadow_1 hovred_bg rounded p-8">
+        <div className=" lg:flex lg:gap-5 md:flex space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0 ">
+          <div className="shadow_1 hovred_bg rounded p-8 lg:w-52 lg:h-52  2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img1}
               alt="My Image"
               width={850}
@@ -33,9 +28,9 @@ const Python = () => {
               {data?.head1}
             </div>
           </div>
-          <div className="shadow_1 hovred_bg  rounded p-8">
+          <div className="shadow_1 hovred_bg  rounded p-8 lg:w-52 lg:h-52 2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img2}
               alt="My Image"
               width={850}
@@ -45,9 +40,9 @@ const Python = () => {
               {data?.head2}
             </div>
           </div>
-          <div className="shadow_1 hovred_bg  rounded p-8">
+          <div className="shadow_1 hovred_bg  rounded p-8 lg:w-52 lg:h-52 2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img3}
               alt="My Image"
               width={850}
@@ -58,10 +53,10 @@ const Python = () => {
             </div>
           </div>
         </div>
-        <div className="lg:flex md:flex space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0">
-          <div className="shadow_1 hovred_bg  rounded p-8">
+        <div className="lg:flex lg:gap-5 lg:mt-5 md:flex space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0 ">
+          <div className="shadow_1 hovred_bg  rounded p-8 lg:w-52 lg:h-52 2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img4}
               alt="My Image"
               width={850}
@@ -71,9 +66,9 @@ const Python = () => {
               {data?.head4}
             </div>
           </div>
-          <div className="shadow_1 hovred_bg  rounded p-8">
+          <div className="shadow_1 hovred_bg  rounded p-8 lg:w-52 lg:h-52 2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img5}
               alt="My Image"
               width={850}
@@ -83,9 +78,9 @@ const Python = () => {
               {data?.head5}
             </div>
           </div>
-          <div className="shadow_1 hovred_bg  rounded p-8">
+          <div className="shadow_1 hovred_bg  rounded p-8 lg:w-52 lg:h-52 2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img6}
               alt="My Image"
               width={850}
@@ -96,10 +91,10 @@ const Python = () => {
             </div>
           </div>
         </div>
-        <div className="lg:flex md:flex space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0 ">
-          <div className="shadow_1 hovred_bg  rounded p-8">
+        <div className="lg:flex md:flex lg:gap-5 lg:mt-5 space-y-10 md:space-y-0  md:space-x-2 lg:space-x-5 space-x-0 ">
+          <div className="shadow_1 hovred_bg  rounded p-8 lg:w-52 lg:h-52 2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img7}
               alt="My Image"
               width={850}
@@ -109,9 +104,9 @@ const Python = () => {
               {data?.head7}
             </div>
           </div>
-          <div className="shadow_1 hovred_bg  rounded p-8">
+          <div className="shadow_1 hovred_bg  rounded p-8 lg:w-52 lg:h-52 2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img8}
               alt="My Image"
               width={850}
@@ -121,10 +116,9 @@ const Python = () => {
               {data?.head8}
             </div>
           </div>
-          F
-          <div className="shadow_1 hovred_bg  rounded p-8">
+          <div className="shadow_1 hovred_bg  rounded p-8 lg:w-52 lg:h-52 2xl:w-60 2xl:h-60">
             <img
-              className="cursor-pointer w-48 h-32 2xl:w-80 2xl:h-60"
+              className="cursor-pointer w-48 h-32 lg:w-36 lg:h-24 2xl:w-80 2xl:h-32"
               src={data?.img9}
               alt="My Image"
               width={850}

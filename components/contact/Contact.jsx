@@ -36,14 +36,14 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="mt-32">
+    <div className="mt-32 lg:p-0 p-7">
       <div className="text-center space-y-5">
-        <h1 className="text-red-700">CONTACT</h1>
-        <h1 className="lg:text-5xl text-3xl font-bold ">Contact With Me </h1>
+        <h1 className="text-[#ff014f]">CONTACT</h1>
+        <h1 className="lg:text-6xl text-3xl font-bold ">Contact With Me </h1>
       </div>
       <div className="lg:flex mt-10 lg:justify-evenly">
         <div>
-          <div className="2xl:w-[600px] 2xl:h-[800px] lg:w-96 h-screen shadow_1  rounded-xl p-10 space-y-10 md:space-y-20 lg:space-y-5">
+          <div className=" 2xl:w-[600px] 2xl:h-[800px] lg:w-[450px] h-screen shadow_1  rounded-xl p-10 space-y-10 md:space-y-20 lg:space-y-5">
             <img
               className="cursor-pointer 2xl:w-[500px] 2xl:h-[350px] w-80 h-52 md:w-screen md:h-96 lg:w-80 lg:h-64  rounded-xl  object-cover transform transition-transform duration-300 hover:scale-110"
               src={data?.img}
@@ -61,32 +61,39 @@ const Contact = () => {
                 {data?.h2}
               </h1>
               <h1 className="2xl:text-2xl md:text-xl lg:text-xs">{data?.h3}</h1>
-              <h1 className="2xl:text-2xl  transition-colors duration-500 hover:text-red-700 md:text-xl lg:text-xs">
+              <h1 className="2xl:text-2xl  transition-colors duration-500 hover:text-[#ff014f] md:text-xl lg:text-xs">
                 {data?.h4}
               </h1>
-              <h1 className="2xl:text-2xl  transition-colors duration-500 hover:text-red-700 md:text-xl lg:text-xs">
+              <h1 className="2xl:text-2xl  transition-colors duration-500 hover:text-[#ff014f] md:text-xl lg:text-xs">
                 {data?.h5}
               </h1>
               <h1 className="md:text-xl lg:text-xs 2xl:text-2xl  ">
                 Find with me
               </h1>
               <div>
-                <div className="space-x-10 mt-1">
-                  <a href="https://www.facebook.com" target="_blank">
-                    <button className="w-6">
-                      <FiFacebook className="w-8 h-8" />
+                <div className="flex space-x-5 mt-1">
+                  
+                <div className="shadow_1 w-12 h-12 p-3 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
+                <a href="https://www.facebook.com" target="_blank" >
+                    <button className=" w-6">
+                      <FiFacebook className="w-6 h-6" />
                     </button>
                   </a>
+                </div>
+                  <div className="shadow_1 w-12 h-12 p-3 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
                   <a href="https://www.instagram.com" target="_blank">
                     <button className="w-6">
-                      <FiInstagram className="w-8 h-8" />
+                      <FiInstagram className="w-6 h-6" />
                     </button>
                   </a>
-                  <a href="https://www.linkedin.com" target="_blank">
+                  </div>
+                 <div className="shadow_1 w-12 h-12 p-3 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
+                 <a href="https://www.linkedin.com" target="_blank">
                     <button className="w-6">
-                      <FiLinkedin className="w-8 h-8" />
+                      <FiLinkedin className="w-6 h-6" />
                     </button>
                   </a>
+                 </div>
                 </div>
               </div>
             </div>
@@ -94,9 +101,9 @@ const Contact = () => {
         </div>
         <form
           onSubmit={handleSubmit}
-          className=" 2xl:w-[800px] 2xl:space-y-5 lg:w-[500px] p-6 shadow_1 shadow-md rounded-lg"
+          className=" 2xl:w-[800px] 2xl:space-y-5 lg:w-[550px] p-6 shadow_1 shadow-md rounded-lg"
         >
-          <div className="mb-4 2xl:text-3xl">
+          <div className="mb-4 2xl:text-3xl ">
             <label htmlFor="name" className="block  font-bold">
               Name
             </label>
@@ -106,7 +113,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border  rounded-md focus:outline-none text-black focus:border-red-700"
+              className="w-full px-3 py-2  bg-[#191b1e] text-white rounded-md focus:outline-none focus:-[#ff014f]"
             />
           </div>
           <div className="mb-4 2xl:text-3xl">
@@ -119,7 +126,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:border-red-700"
+              className="w-full  px-3 py-2  bg-[#191b1e] text-white -gray-300  rounded-md focus:outline-none focus:-[#ff014f]"
             />
           </div>
           <div className="mb-4 2xl:text-3xl">
@@ -132,7 +139,7 @@ const Contact = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:border-red-700"
+              className="w-full px-3 py-2  bg-[#191b1e] text-white -gray-300  rounded-md focus:outline-none focus:-[#ff014f]"
             />
           </div>
           <div className="mb-4 2xl:text-3xl">
@@ -144,7 +151,7 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full px-3 py-10 border text-black border-gray-300 rounded-md focus:outline-none focus:border-red-700"
+              className="w-full px-3 py-10  bg-[#191b1e] text-white  -gray-300 rounded-md focus:outline-none focus:-[#ff014f]"
             ></textarea>
           </div>
           <div className="text-center lg:mt-16 ">

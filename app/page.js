@@ -11,19 +11,14 @@ import Blog from "@/components/blog/Blog";
 import Contact from "@/components/contact/Contact";
 import { useRef, useState, useEffect } from "react";
 import Footer from "@/components/footer/Footer";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import {
+  AiOutlineMenu,
+  AiOutlineClose,
+  AiOutlineArrowUp,
+} from "react-icons/ai";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 
 export default function Home() {
-  
-  const isProduction = process.env.NODE_ENV == "production";
-  const BASE_URL = isProduction
-    ? process.env.NEXT_PUBLIC_PRODUCTION_BASE_URL
-    : process.env.NEXT_PUBLIC_DEVELOPMENT_BASE_URL;
-
-  // console.log('Production Environment:', isProduction);
-  // console.log('BASE_URL:', BASE_URL);
-
   const homeRef = useRef();
   const featureRef = useRef();
   const portfolioRef = useRef();
@@ -37,10 +32,14 @@ export default function Home() {
 
   const goToView = (name) => {
     if (name === "home") {
-      homeRef.current?.scrollIntoView({
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const targetRef = getTargetRef(name);
+      targetRef?.current?.scrollIntoView({
         behavior: "smooth",
       });
     }
+
     if (name === "feature") {
       featureRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -78,6 +77,27 @@ export default function Home() {
     }
   };
 
+  const getTargetRef = (name) => {
+    switch (name) {
+      case "feature":
+        return featureRef;
+      case "portfolio":
+        return portfolioRef;
+      case "resume":
+        return resumeRef;
+      case "clients":
+        return clientsRef;
+      case "pricing":
+        return pricingRef;
+      case "blog":
+        return blogRef;
+      case "contact":
+        return contactRef;
+      default:
+        return null;
+    }
+  };
+
   const handleScroll = () => {
     if (window.scrollY > 100) {
       setScrolled(true);
@@ -95,7 +115,8 @@ export default function Home() {
 
   useEffect(() => {
     setTimeout(() => {
-      if (localStorage.getItem("fromBlog")) {
+      if (localStorage.getItem("fromBlog") === "true") {
+        console.log("first")
         goToView("blog");
         localStorage.setItem("fromBlog", false);
       }
@@ -103,17 +124,17 @@ export default function Home() {
   }, []);
 
   return (
-    <main className=" p-8">
+    <main className="lg:p-7 md:p-7">
       <div
         className={`${
           scrolled
-            ? "fixed top-0 left-0 space-x-14 justify-around   shadow_1  z-50 lg:w-screen hidden md:hidden"
+            ? "fixed top-0 left-0 space-x-14 justify-between lg:p-5 shadow_1  z-50 lg:w-screen hidden md:hidden"
             : "hidden"
-        } lg:flex items-center space-x-14 justify-around transition-all ease-in-out duration-300 `}
+        } lg:flex items-center space-x-14 justify-between transition-all ease-in-out duration-300 `}
       >
         <div>
           <Image
-            className="cursor-pointer 2xl:mr-[400px] 2xl:w-80 2xl:h-36  lg:w-40 lg:h-20"
+            className="cursor-pointer 2xl:mr-[400px] 2xl:w-44 2xl:h-20  lg:w-36 lg:h-16 "
             onClick={() => goToView("home")}
             src="/images/my-image.jpg"
             alt="My Image"
@@ -121,9 +142,12 @@ export default function Home() {
             height={500}
           />
         </div>
-        <div className="flex space-x-12  ">
+        <div className="flex ">
           <div>
-            <ul className="flex space-x-4  mt-3 2xl:text-2xl">
+            <ul
+              className="flex space-x-4 lg:space-x-8  mt-3 2xl:text-sm lg:text-sm
+             "
+            >
               <li onClick={() => goToView("home")} className="cursor-pointer">
                 HOME
               </li>
@@ -131,7 +155,7 @@ export default function Home() {
                 onClick={() => goToView("feature")}
                 className="cursor-pointer"
               >
-                FEATURE
+                FEATURES
               </li>
               <li
                 onClick={() => goToView("portfolio")}
@@ -166,7 +190,7 @@ export default function Home() {
             </ul>
           </div>
           <div>
-            <button className="text-red-700  shadow_1 hovred_bg  rounded w-36 h-12 2xl:w-48 2xl:h-14 2xl:text-2xl">
+            <button className="text-[#ff014f] font-bold lg:w-28 lg:h-12 lg:ml-5  shadow_1 hovred_bg  rounded w-36 h-12 2xl:w-32 2xl:h-8 2xl:text-sm 2xl:ml-8">
               Buy Now
             </button>
           </div>
@@ -175,13 +199,13 @@ export default function Home() {
       <div
         className={`${
           scrolled
-            ? "flex lg:hidden fixed top-0 left-0 space-x-14 justify-between   shadow_1  z-50 w-screen p-4"
+            ? "flex lg:hidden fixed top-0 left-0 space-x-20  justify-between   shadow_1  z-50 w-screen p-3"
             : ""
-        } lg:hidden items-center space-x-14 flex justify-between transition-all ease-in-out duration-300`}
+        } lg:hidden items-center justify-between flex    md:justify-between transition-all ease-in-out duration-300`}
       >
         <div>
           <Image
-            className="cursor-pointer "
+            className="cursor-pointer w-28"
             src="/images/my-image.jpg"
             alt="My Image"
             width={150}
@@ -191,15 +215,15 @@ export default function Home() {
         <div>
           <button
             onClick={() => setIsOpnedDrawer((prev) => !prev)}
-            className="text-red-700  shadow_1 hovred_bg  rounded w-28 h-12 flex justify-center"
+            className=" shadow_1  rounded w-16 h-12 flex justify-center"
           >
-            <AiOutlineMenu className="mt-4" />
+            <AiOutlineMenu className="mt-4 text-[#ff014f] " />
           </button>
         </div>
       </div>
 
       {isOpnedDrawer && (
-        <div className="lg:hidden h-screen top-0  fixed z-50  left-0 shadow_1 hovred_bg ml-5 p-8 md:w-96 w-72   ">
+        <div className="lg:hidden h-screen top-0  fixed z-50   left-0 shadow_1 hovred_bg  p-8 md:w-[400px] w-72   ">
           <div className="flex justify-between">
             <Image
               className="cursor-pointer"
@@ -208,7 +232,7 @@ export default function Home() {
               width={150}
               height={100}
             />
-            <div className="mt-7" onClick={() => setIsOpnedDrawer(false)}>
+            <div className="mt-7 " onClick={() => setIsOpnedDrawer(false)}>
               <AiOutlineClose />
             </div>
           </div>
@@ -297,6 +321,13 @@ export default function Home() {
       <div ref={homeRef}>
         <Hero />
       </div>
+      {scrolled && !isOpnedDrawer && (
+        <div className="fixed z-50 bottom-12 right-5 shadow_1 w-12 h-12 p-3 rounded-full">
+          <button onClick={() => goToView("home")}>
+            <AiOutlineArrowUp className="w-6 h-6 text-[#ff014f]" />
+          </button>
+        </div>
+      )}
       <div ref={featureRef}>
         <Feature />
       </div>

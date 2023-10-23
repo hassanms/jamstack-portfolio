@@ -16,9 +16,9 @@ const PortfolioSkill = () => {
   return (
     <div className="lg:flex container mx-auto mt-8 p-4 lg:justify-around items-center ">
       <div>
-        <h1 className="text-xl font-bold mb-4 text-red-700">Features</h1>
-        <h1 className=" text-2xl">Design Skills</h1>
-        <div className="lg:w-96">
+        <h1 className="text-xl font-bold mb-4 text-[#ff014f]">Features</h1>
+        <h1 className=" text-2xl lg:text-4xl font-bold">Design Skills</h1>
+        <div className="lg:w-[500px] lg:mt-8">
           <SkillBar skill="HTML" percentage={data?.html} />
           <SkillBar skill="CSS" percentage={data?.css} />
           <SkillBar skill="JavaScript" percentage={data?.javascript} />
@@ -33,11 +33,11 @@ const PortfolioSkill = () => {
       <div>
         <div>
           <div>
-            <h1 className="text-xl font-bold mb-4 text-red-700">Features</h1>
-            <h1 className=" text-2xl">Design Skills</h1>
+            <h1 className="text-xl font-bold mb-4 text-[#ff014f]">Features</h1>
+            <h1 className=" text-2xl lg:text-4xl font-bold">Design Skills</h1>
           </div>
           <div>
-            <div className="lg:w-96">
+            <div className="lg:w-[500px] lg:mt-8">
               <SkillBar skill="HTML" percentage={data?.html} />
               <SkillBar skill="CSS" percentage={data?.css} />
               <SkillBar skill="JavaScript" percentage={data?.javascript} />
