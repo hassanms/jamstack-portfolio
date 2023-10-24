@@ -128,9 +128,9 @@ export default function Home() {
       <div
         className={`${
           scrolled
-            ? "fixed top-0 left-0 space-x-14 justify-between lg:p-5 shadow_1  z-50 lg:w-screen hidden md:hidden"
+            ? "fixed top-0 backdrop-blur-lg bg-[rgba(33,36,40,.871)] left-0 space-x-14 justify-between lg:p-5   z-50 lg:w-screen hidden md:hidden"
             : "hidden"
-        } lg:flex items-center space-x-14 justify-between transition-all ease-in-out duration-300 `}
+        } lg:flex items-center space-x-14  justify-between transition-all ease-in-out duration-300 `}
       >
         <div>
           <Image
@@ -320,37 +320,46 @@ export default function Home() {
       )}
       <div ref={homeRef}>
         <Hero />
+        <hr className="border-t border-black" />
       </div>
       {scrolled && !isOpnedDrawer && (
         <div className="fixed z-50 bottom-12 right-5 shadow_1 w-12 h-12 p-3 rounded-full">
           <button onClick={() => goToView("home")}>
-            <AiOutlineArrowUp className="w-6 h-6 text-[#ff014f]" />
+            <AiOutlineArrowUp className="w-6 h-6 " />
           </button>
         </div>
       )}
       <div ref={featureRef}>
         <Feature />
+        <hr className="border-t border-black mt-10" />  
       </div>
       <div ref={portfolioRef}>
         <Portfolio />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={resumeRef}>
         <Resume />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div>
         <Mainslide />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={clientsRef}>
         <Client />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={pricingRef}>
         <Pricing />
       </div>
       <div ref={blogRef}>
+      <hr className="border-t border-black mt-16" />
         <Blog />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={contactRef}>
         <Contact />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div>
         <Footer />

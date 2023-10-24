@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineHeart, AiOutlineArrowRight } from "react-icons/ai";
-import axios from "axios";
-import { baseUrl } from "@/baseUrl";
+import { portfolio } from "@/data";
 
 const Portfolio = () => {
-  const [cards, setCards] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(-1);
-
-  useEffect(() => {
-    axios
-      .get(`${baseUrl}api/portofliocards`)
-      .then((res) => setCards(res.data.data[0].attributes.pf))
-      .catch((err) => console.log(err));
-  }, []);
-
   const icons = [
     <AiOutlineHeart />,
     <AiOutlineHeart />,
@@ -44,7 +34,7 @@ const Portfolio = () => {
         <h1 className="lg:text-6xl text-4xl font-bold">My Portfolio</h1>
       </div>
       <div className="flex gap-16   flex-wrap justify-center lg:space-y-0 lg:space-x-2 space-y-5 md:space-x-3 md:space-y-0 mt-16 lg:mt-20 ]">
-        {cards.map((card, i) => {
+        {portfolio[0].attributes.pf.map((card, i) => {
           return (
             <div
               className={`w-80 h-96 md:w-[280px] lg:w-[300px] lg:h-[380px] 2xl:w-[400px] shadow_1 hovred_bg rounded-xl p-8 space-y-4 transition-transform duration-300 hover:transform scale-110`}
@@ -59,9 +49,9 @@ const Portfolio = () => {
               <div className="flex space-x-16 lg:space-x-24 2xl:ml-5 md:space-x-12">
                 <div className="text-[#ff014f] lg:text-xs">DEVELOPMENT</div>
                 <div className="flex space-x-1">
-                  <div>{card.heart}</div>
-                  <div className="mt-1">
-                    <div> {icons[i]}</div>
+                  <div className="text-xs">{card.heart}</div>
+                  <div className="mt-0.5">
+                    <div className="text-xs"> {icons[i]}</div>
                   </div>
                 </div>
               </div>
