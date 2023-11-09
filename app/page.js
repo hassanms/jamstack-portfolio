@@ -39,7 +39,6 @@ export default function Home() {
         behavior: "smooth",
       });
     }
-
     if (name === "feature") {
       featureRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -116,7 +115,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       if (localStorage.getItem("fromBlog") === "true") {
-        console.log("first")
+        console.log("first");
         goToView("blog");
         localStorage.setItem("fromBlog", false);
       }
@@ -128,21 +127,22 @@ export default function Home() {
       <div
         className={`${
           scrolled
-            ? "fixed top-0 left-0 space-x-14 justify-between lg:p-5 shadow_1  z-50 lg:w-screen hidden md:hidden"
+            ? "fixed top-0 left-0 space-x-14  justify-between  backdrop-blur-md 2xl:p-5 lg:p-5 bg-[rgba(33,36,40,.871)]  z-50 lg:w-screen hidden md:hidden"
             : "hidden"
-        } lg:flex items-center space-x-14 justify-between transition-all ease-in-out duration-300 `}
+        } lg:flex 2xl:flex  space-x-14 justify-between transition-all  ease-in-out duration-300`}
       >
-        <div>
+        <div className="flex 2xl:flex  lg:space-x-2">
           <Image
-            className="cursor-pointer 2xl:mr-[400px] 2xl:w-44 2xl:h-20  lg:w-36 lg:h-16 "
+            className="cursor-pointer 2xl:mr-[10px]  rounded-full  2xl:w-32  2xl:h-20  lg:w-20 lg:h-16 "
             onClick={() => goToView("home")}
-            src="/images/my-image.jpg"
+            src="/images/hami.jpg"
             alt="My Image"
             width={450}
             height={500}
           />
+          <div className="mt-5 font-bold text-xl 2xl:mt-8">INBIO</div>
         </div>
-        <div className="flex ">
+        <div className="flex  lg:p-2 2xl:p-5">
           <div>
             <ul
               className="flex space-x-4 lg:space-x-8  mt-3 2xl:text-sm lg:text-sm
@@ -190,7 +190,7 @@ export default function Home() {
             </ul>
           </div>
           <div>
-            <button className="text-[#ff014f] font-bold lg:w-28 lg:h-12 lg:ml-5  shadow_1 hovred_bg  rounded w-36 h-12 2xl:w-32 2xl:h-8 2xl:text-sm 2xl:ml-8">
+            <button className="text-[#ff014f] lg:text-sm lg:w-28 lg:h-12 lg:ml-5 lg:mr-4 shadow_1 hovred_bg  rounded w-36 h-12 2xl:w-32 2xl:h-8 2xl:text-sm 2xl:mt-1">
               Buy Now
             </button>
           </div>
@@ -320,37 +320,46 @@ export default function Home() {
       )}
       <div ref={homeRef}>
         <Hero />
+        <hr className="border-t border-black " />
       </div>
       {scrolled && !isOpnedDrawer && (
         <div className="fixed z-50 bottom-12 right-5 shadow_1 w-12 h-12 p-3 rounded-full">
           <button onClick={() => goToView("home")}>
-            <AiOutlineArrowUp className="w-6 h-6 text-[#ff014f]" />
+            <AiOutlineArrowUp className="w-6 h-6 " />
           </button>
         </div>
       )}
       <div ref={featureRef}>
         <Feature />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={portfolioRef}>
         <Portfolio />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={resumeRef}>
         <Resume />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div>
         <Mainslide />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={clientsRef}>
         <Client />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={pricingRef}>
         <Pricing />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={blogRef}>
         <Blog />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div ref={contactRef}>
         <Contact />
+        <hr className="border-t border-black mt-16" />
       </div>
       <div>
         <Footer />

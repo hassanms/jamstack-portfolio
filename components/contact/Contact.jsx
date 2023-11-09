@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 import axios from "axios";
 import { baseUrl } from "@/baseUrl";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const Contact = () => {
   const [data, setData] = useState({});
@@ -39,7 +40,9 @@ const Contact = () => {
     <div className="mt-32 lg:p-0 p-7">
       <div className="text-center space-y-5">
         <h1 className="text-[#ff014f]">CONTACT</h1>
-        <h1 className="lg:text-6xl text-3xl font-bold ">Contact With Me </h1>
+        <h1 className="lg:text-6xl text-3xl font-extrabold  ">
+          Contact With Me{" "}
+        </h1>
       </div>
       <div className="lg:flex mt-10 lg:justify-evenly">
         <div>
@@ -52,12 +55,12 @@ const Contact = () => {
               height={500}
             />
             <div>
-              <div className=" 2xl:text-4xl lg:text-2xl text-2xl md:text-5xl font-bold">
+              <div className=" 2xl:text-4xl lg:text-2xl text-2xl md:text-5xl ">
                 {data?.h1}
               </div>
             </div>
             <div className="space-y-2 2xl:space-y-4">
-              <h1 className="2xl:text-3xl text-xl md:text-3xl lg:text-xl font-bold">
+              <h1 className="2xl:text-3xl text-xl md:text-3xl lg:text-xl ">
                 {data?.h2}
               </h1>
               <h1 className="2xl:text-2xl md:text-xl lg:text-xs">{data?.h3}</h1>
@@ -72,28 +75,27 @@ const Contact = () => {
               </h1>
               <div>
                 <div className="flex space-x-5 mt-1">
-                  
-                <div className="shadow_1 w-12 h-12 p-3 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
-                <a href="https://www.facebook.com" target="_blank" >
-                    <button className=" w-6">
-                      <FiFacebook className="w-6 h-6" />
-                    </button>
-                  </a>
-                </div>
-                  <div className="shadow_1 w-12 h-12 p-3 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
-                  <a href="https://www.instagram.com" target="_blank">
-                    <button className="w-6">
-                      <FiInstagram className="w-6 h-6" />
-                    </button>
-                  </a>
+                  <div className="shadow_1 w-12 h-12 p-3  lg:p-4 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
+                    <a href="https://www.facebook.com" target="_blank">
+                      <button className=" w-6">
+                        <FiFacebook className="w-6 h-6 lg:w-4 lg:h-4" />
+                      </button>
+                    </a>
                   </div>
-                 <div className="shadow_1 w-12 h-12 p-3 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
-                 <a href="https://www.linkedin.com" target="_blank">
-                    <button className="w-6">
-                      <FiLinkedin className="w-6 h-6" />
-                    </button>
-                  </a>
-                 </div>
+                  <div className="shadow_1 w-12 h-12 p-3 lg:p-4 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
+                    <a href="https://www.instagram.com" target="_blank">
+                      <button className="w-6">
+                        <FiInstagram className="w-6 h-6 lg:w-4 lg:h-4" />
+                      </button>
+                    </a>
+                  </div>
+                  <div className="shadow_1 w-12 h-12 p-3 lg:p-4 rounded  transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
+                    <a href="https://www.linkedin.com" target="_blank">
+                      <button className="w-6">
+                        <FiLinkedin className="w-6 h-6 lg:w-4 lg:h-4" />
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -101,10 +103,10 @@ const Contact = () => {
         </div>
         <form
           onSubmit={handleSubmit}
-          className=" 2xl:w-[800px] 2xl:space-y-5 lg:w-[550px] p-6 shadow_1 shadow-md rounded-lg"
+          className=" 2xl:w-[800px] 2xl:space-y-5 lg:space-y-5 lg:w-[550px] p-6 shadow_1 shadow-md rounded-lg "
         >
-          <div className="mb-4 2xl:text-3xl ">
-            <label htmlFor="name" className="block  font-bold">
+          <div className="mb-4 2xl:text-3xl space-y-3">
+            <label htmlFor="name" className="block  ">
               Name
             </label>
             <input
@@ -116,8 +118,8 @@ const Contact = () => {
               className="w-full px-3 py-2  bg-[#191b1e] text-white rounded-md focus:outline-none focus:-[#ff014f]"
             />
           </div>
-          <div className="mb-4 2xl:text-3xl">
-            <label htmlFor="email" className="block  font-bold">
+          <div className="mb-4 2xl:text-3xl space-y-3">
+            <label htmlFor="email" className="block  ">
               Email
             </label>
             <input
@@ -129,8 +131,8 @@ const Contact = () => {
               className="w-full  px-3 py-2  bg-[#191b1e] text-white -gray-300  rounded-md focus:outline-none focus:-[#ff014f]"
             />
           </div>
-          <div className="mb-4 2xl:text-3xl">
-            <label htmlFor="phone" className="block  font-bold">
+          <div className="mb-4 2xl:text-3xl space-y-3">
+            <label htmlFor="phone" className="block  ">
               Phone
             </label>
             <input
@@ -142,8 +144,8 @@ const Contact = () => {
               className="w-full px-3 py-2  bg-[#191b1e] text-white -gray-300  rounded-md focus:outline-none focus:-[#ff014f]"
             />
           </div>
-          <div className="mb-4 2xl:text-3xl">
-            <label htmlFor="message" className="block  font-bold">
+          <div className="mb-4 2xl:text-3xl space-y-3">
+            <label htmlFor="message" className="block  ">
               Message
             </label>
             <textarea
@@ -154,12 +156,17 @@ const Contact = () => {
               className="w-full px-3 py-10  bg-[#191b1e] text-white  -gray-300 rounded-md focus:outline-none focus:-[#ff014f]"
             ></textarea>
           </div>
-          <div className="text-center lg:mt-16 ">
+          <div className="lg:mt-16">
             <button
               type="submit"
-              className="2xl:w-72 2xl:h-20 2xl:text-2xl 2xl:mt-10 py-3 px-4 rounded-md shadow_1 hovred_bg focus:outline-none"
+              className="2xl:w-72 2xl:h-20 2xl:text-2xl 2xl:mt-10 py-3 px-4 rounded-md shadow_1 focus:outline-none transition-transform hover:translate-y-[-5px] "
             >
-              Send Message
+              <div className="flex space-x-2">
+                <div className="text-[#ff014f]">Send Message</div>
+                <div>
+                  <AiOutlineArrowRight className="text-[#ff014f] mt-1" />
+                </div>
+              </div>
             </button>
           </div>
         </form>

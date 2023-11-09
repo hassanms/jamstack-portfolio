@@ -18,14 +18,14 @@ const Pricing = () => {
           <div className=" font-extrabold text-6xl">My Pricing</div>
         </div>
         <div>
-          <div className="lg:flex 2xl:space-x-5 items-center 2xl:w-[1200px] md:flex md:justify-center md:space-x-5">
-            <div className="rounded shadow_1 2xl:w-[300px] 2xl:h-24 2xl:text-2xl 2xl:p-8 lg:w-52 lg:h-20 lg:p-6 text-center p-5 text-xl font-bold hover:text-[#ff014f] md:w-52">
+          <div className="lg:flex 2xl:space-x-5 items-center 2xl:w-[1200px] md:flex md:justify-center md:space-x-5 lg:space-x-0">
+            <div className="rounded shadow_1 2xl:w-[300px] 2xl:h-24 2xl:text-2xl 2xl:p-8 lg:w-[225px] lg:h-20 lg:p-6 text-center p-5 text-xl font-bold hover:text-[#ff014f] md:w-52">
               <button onClick={() => changeDiv("Basic")}>Basic</button>
             </div>
-            <div className="rounded shadow_1 2xl:w-[300px] lg:w-52 2xl:h-24 2xl:text-2xl 2xl:p-8 lg:h-20 lg:p-6 text-center p-5 text-xl font-bold  hover:text-[#ff014f] md:w-52">
+            <div className="rounded shadow_1 2xl:w-[300px] lg:w-[225px] 2xl:h-24 2xl:text-2xl 2xl:p-8 lg:h-20 lg:p-6 text-center p-5 text-xl font-bold  hover:text-[#ff014f] md:w-52">
               <button onClick={() => changeDiv("Standard")}>Standard</button>
             </div>
-            <div className="rounded shadow_1 2xl:w-[300px] 2xl:h-24 2xl:text-2xl 2xl:p-8 lg:w-52 lg:h-20 lg:p-6 text-center p-5 text-xl font-bold  hover:text-[#ff014f] md:w-52">
+            <div className="rounded shadow_1 2xl:w-[300px] 2xl:h-24 2xl:text-2xl 2xl:p-8 lg:w-[225px] lg:h-20 lg:p-6 text-center p-5 text-xl font-bold  hover:text-[#ff014f] md:w-52">
               <button onClick={() => changeDiv("Premium")}>Premium</button>
             </div>
           </div>

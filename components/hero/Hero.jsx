@@ -33,37 +33,37 @@ const Hero = () => {
         </h2>
         <div className="lg:flex md:flex  lg:space-x-14 md:space-x-44 pt-16 lg:mt-10 ">
           <div className="lg:mt-16 ">
-            <h1 className="md:text-2xl">Find with me</h1>
+            <h1 className="md:text-2xl lg:text-base">Find with me</h1>
             <div className="flex mt-2 md:mt-4 md:space-x-3 space-x-3 lg:space-x-7 ">
               <a href="https://www.facebook.com" target="_blank">
                 <div className="box shadow_1  lg:w-14 lg:h-14  rounded transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
                   <button className="w-16 h-16 p-5 lg:p-3 rounded ">
-                    <FiFacebook className="lg:w-8 lg:h-8 w-5 h-5 " />
+                    <FiFacebook className="lg:w-5 lg:h-5 lg:ml-1 lg:mb-1 w-5 h-5 " />
                   </button>
                 </div>
               </a>
               <a href="https://www.instagram.com" target="_blank">
                 <div className="box shadow_1 lg:w-14 lg:h-14  rounded transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
                   <button className="w-16 h-16 p-5 lg:p-3 rounded">
-                    <FiInstagram className="lg:w-8 lg:h-8 w-5 h-5" />
+                    <FiInstagram className="lg:w-5 lg:h-5 lg:ml-1 lg:mb-1 w-5 h-5" />
                   </button>
                 </div>
               </a>
               <a href="https://www.linkedin.com" target="_blank">
                 <div className="box shadow_1 lg:w-14 lg:h-14 rounded transition-transform transform-gpu hover:translate-y-[-3px] hover:duration-1000">
                   <button className="w-16 h-16 p-5 lg:p-3  rounded">
-                    <FiLinkedin className=" lg:w-8 lg:h-8 w-5 h-5" />
+                    <FiLinkedin className=" lg:w-5 lg:h-5 lg:ml-1 lg:mb-1 w-5 h-5" />
                   </button>
                 </div>
               </a>
             </div>
           </div>
           <div className="lg:mt-16 mt-10 md:mt-0">
-            <h1  className="md:text-2xl">Best Skill On</h1>
+            <h1  className="md:text-2xl lg:text-base">Best Skill On</h1>
             <div className=" flex  mt-2 md:mt-4 lg:space-x-7 space-x-3 md:space-x-3">
-              <div className="shadow_1 lg:w-14 lg:h-14 lg:p-3  w-16 h-16 p-5 rounded">
+              <div className="shadow_1 lg:w-14 lg:h-14 lg:p-4  w-16 h-16 p-5 rounded">
                 <Image
-                  className="cursor-pointer lg:w-8 lg:h-8 w-5 h-5"
+                  className="cursor-pointer lg:w-5 lg:h-5  w-5 h-5"
                   src="/images/in.jpg"
                   alt="My Image"
                   width={540}
@@ -71,18 +71,18 @@ const Hero = () => {
                 />
               </div>
 
-              <div className="shadow_1 lg:w-14 lg:h-14 lg:p-3 w-16 h-16 p-5 rounded">
+              <div className="shadow_1 lg:w-14 lg:h-14 lg:p-4 w-16 h-16 p-5 rounded">
                 <Image
-                  className="cursor-pointer lg:w-8 lg:h-8 w-5 h-5 "
+                  className="cursor-pointer lg:w-5 lg:h-5  w-5 h-5 "
                   src="/images/daimond.jpg"
                   alt="My Image"
                   width={40}
                   height={5}
                 />
               </div>
-              <div className="shadow_1 lg:w-14 lg:h-14 lg:p-3 w-16 h-16 p-5 rounded">
+              <div className="shadow_1 lg:w-14 lg:h-14 lg:p-4 w-16 h-16 p-5 rounded">
                 <Image
-                  className="cursor-pointer lg:w-8 lg:h-8 w-5 h-5"
+                  className="cursor-pointer lg:w-5 lg:h-5  w-5 h-5"
                   src="/images/f.jpg"
                   alt="My Image"
                   width={40}
@@ -95,7 +95,7 @@ const Hero = () => {
       </div>
       <div>
         <img
-          className="shadow_1 md:w-screen lg:w-[450px] lg:h-[650px] lg:ml-32 2xl:w-[500px] 2xl:mt-20 2xl:ml-0"
+          className="shadow_1 md:w-screen lg:w-[430px] lg:h-[650px] lg:ml-32 2xl:w-[500px] 2xl:mt-20 2xl:ml-0"
           src={data?.hero_image1}
           alt="Hero Image"
           width={550}

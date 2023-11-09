@@ -24,7 +24,7 @@ const Education = () => {
   return (
     <div className="lg:flex md:flex 2  2xl:justify-center">
       <div className="mt-5 ">
-        <div className="flex  lg:justify-center  items-start space-x-10 md:justify-evenly ">
+        <div className="flex  lg:justify-center lg:mt-5  items-start space-x-10 md:justify-evenly ">
           <div className="space-y-5">
             <h1 className="text-[#ff014f]">2007 - 2010</h1>
             <h1 className=" lg:text-4xl font-extrabold text-2xl ">Educational Quallity</h1>
@@ -41,11 +41,11 @@ const Education = () => {
                   <div>
                     <div>{card.uni}</div>
                   </div>
-                  <div className="text-[#ff014f]">
+                  <div className="text-[#ff014f] ">
                     <div>{card.rate}</div>
                   </div>
                 </div>
-                <hr />
+                <hr className="border-t border-black mt-16" />
                 <div className="2xl:text-xl">
                   <div>{card.body}</div>
                 </div>
@@ -55,7 +55,7 @@ const Education = () => {
         </div>
       </div>
       <div className="mt-5 ">
-        <div className="flex lg:mr-24 items-start space-x-10 md:justify-evenly ">
+        <div className="flex lg:mr-24 lg:mt-5 items-start space-x-10 md:justify-evenly ">
           <div className="space-y-5">
             <h1 className="text-[#ff014f]">2007 - 2010</h1>
             <h1 className=" lg:text-4xl font-extrabold text-2xl">Job experience</h1>
@@ -76,7 +76,7 @@ const Education = () => {
                     <div>{card.rate2}</div>
                   </div>
                 </div>
-                <hr />
+                <hr className="border-t border-black mt-16" />
                 <div className="2xl:text-xl">
                   <div>{card.body2}</div>
                 </div>

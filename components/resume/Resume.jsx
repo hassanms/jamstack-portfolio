@@ -18,11 +18,11 @@ const Resume = () => {
           <h1 className="text-[#ff014f]">7+ YEARS OF EXPERIANCE</h1>
           <h1 className="font-bold lg:text-6xl text-3xl">MY RESUME</h1>
         </div>
-        <div className="flex flex-wrap  mt-5  lg:mt-10 rounded justify-center  lg:space-x-0 gap-3">
+        <div className="flex flex-wrap  mt-5  lg:mt-10 rounded justify-center  lg:space-x-0 gap-3 lg:gap-0">
           <div>
             <button
               onClick={(e) => changeDiv("education")}
-              className="rounded shadow_1 lg:w-64 lg:h-20  2xl:w-96 2xl:h-24 2xl:text-2xl w-36  h-14 md:w-36 md:h-20 hover:text-[#ff014f]"
+              className="rounded shadow_1 lg:w-[270px] lg:h-20  2xl:w-96 2xl:h-24 2xl:text-2xl w-36  h-14 md:w-36 md:h-20 hover:text-[#ff014f]"
             >
               Education
             </button>
@@ -30,7 +30,7 @@ const Resume = () => {
           <div>
             <button
               onClick={(e) => changeDiv("professional")}
-              className=" hover:text-[#ff014f] shadow_1 2xl:w-96 2xl:h-24 2xl:text-2xl lg:w-64 lg:h-20 w-36 md:w-36 md:h-20   h-14"
+              className=" hover:text-[#ff014f] shadow_1 2xl:w-96 2xl:h-24 2xl:text-2xl lg:w-[270px] lg:h-20 w-36 md:w-36 md:h-20   h-14"
             >
               Professional
             </button>
@@ -38,7 +38,7 @@ const Resume = () => {
           <div>
             <button
               onClick={(e) => changeDiv("experience")}
-              className=" hover:text-[#ff014f] shadow_1 2xl:w-96 2xl:h-24 2xl:text-2xl lg:w-64 lg:h-20 w-36  md:w-36 md:h-20  h-14"
+              className=" hover:text-[#ff014f] shadow_1 2xl:w-96 2xl:h-24 2xl:text-2xl lg:w-[270px] lg:h-20 w-36  md:w-36 md:h-20  h-14"
             >
               Experience
             </button>
@@ -46,7 +46,7 @@ const Resume = () => {
           <div>
             <button
               onClick={(e) => changeDiv("interview")}
-              className=" hover:text-[#ff014f] shadow_1 2xl:w-96 2xl:h-24 2xl:text-2xl lg:w-64 lg:h-20 w-36 md:w-36 md:h-20  h-14"
+              className=" hover:text-[#ff014f] shadow_1 2xl:w-96 2xl:h-24 2xl:text-2xl lg:w-[270px] lg:h-20 w-36 md:w-36 md:h-20  h-14"
             >
               Interview
             </button>

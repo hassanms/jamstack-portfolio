@@ -52,7 +52,7 @@ const Feature = () => {
   };
 
   return (
-    <div className="lg:mt-10 mt-28 p-5 lg:p-0 md:p-4  2xl:p-5">
+    <div className="lg:mt-28 mt-28 p-5 lg:p-0 md:p-4  2xl:p-5">
       <div className="space-y-4 text-center lg:justify-center">
         <h1 className="text-[#ff014f] text-xl">Features</h1>
         <h1 className="lg:text-6xl text-4xl font-bold">What I Do</h1>

@@ -45,7 +45,7 @@ const Interview = () => {
                     <div>{card.rate}</div>
                   </div>
                 </div>
-                <hr />
+                <hr className="border-t border-black mt-16" />
                 <div className="2xl:text-xl">
                   <div>{card.body}</div>
                 </div>
@@ -76,7 +76,7 @@ const Interview = () => {
                     <div>{card.rate2}</div>
                   </div>
                 </div>
-                <hr />
+                <hr className="border-t border-black mt-16" />
                 <div className="2xl:text-xl">
                   <div>{card.body2}</div>
                 </div>
